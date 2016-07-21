@@ -64,10 +64,13 @@
 				<Item Name="List Directory and LLBs.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/List Directory and LLBs.vi"/>
 				<Item Name="Longest Line Length in Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Longest Line Length in Pixels.vi"/>
 				<Item Name="LVBoundsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVBoundsTypeDef.ctl"/>
+				<Item Name="lvpidtkt.dll" Type="Document" URL="/&lt;vilib&gt;/addons/control/pid/lvpidtkt.dll"/>
 				<Item Name="main engine.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/TBM Engines/Standard Engine/Execution Engine/main engine/main engine.lvlib"/>
 				<Item Name="ms timing source.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Module Timing Source/standard timing source/ms timing source.lvclass"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
+				<Item Name="NI_PID__prctrl compat.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/control/pid/NI_PID__prctrl compat.lvlib"/>
+				<Item Name="NI_PID_pid.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/control/pid/NI_PID_pid.lvlib"/>
 				<Item Name="NI_PtbyPt.lvlib" Type="Library" URL="/&lt;vilib&gt;/ptbypt/NI_PtbyPt.lvlib"/>
 				<Item Name="NISE_CEF_serializable configuration.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Configuration Framework/serializable configuration/NISE_CEF_serializable configuration.lvclass"/>
 				<Item Name="NISE_CEF_TreeControl.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/Configuration Framework/NISE_CEF_TreeControl.lvlib"/>
@@ -113,6 +116,8 @@
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 				<Item Name="worker pool.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/TBM Engines/Standard Engine/Execution Engine/worker library/worker pool.lvlib"/>
 			</Item>
+			<Item Name="Custom Controller Module configuration.lvclass" Type="LVClass" URL="../../Modules/Custom Temperature Controller/module/configuration/Custom Controller Module configuration.lvclass"/>
+			<Item Name="Custom Controller Module runtime.lvclass" Type="LVClass" URL="../../Modules/Custom Temperature Controller/module/execution/Custom Controller Module runtime.lvclass"/>
 			<Item Name="custom PID.vi" Type="VI" URL="../../Modules/Temperature Controller Logic/module/execution/custom PID.vi"/>
 			<Item Name="nirviCommon.vi" Type="VI" URL="/&lt;vilib&gt;/express/rvi/timingcommon/nirviCommon.vi"/>
 			<Item Name="Temperature Chamber Model configuration.lvclass" Type="LVClass" URL="../../Modules/Temperature Chamber Model/module/configuration/Temperature Chamber Model configuration.lvclass"/>
