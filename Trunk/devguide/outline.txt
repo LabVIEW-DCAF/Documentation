@@ -1,40 +1,38 @@
 Overview
  TOC
+ 
 Component overview
-    X Module 
-           Diagram of flow in and out
-    X Engine
-    X Timing Source
-    X palette descriptions
-    X Package Description
-   
-X Application Design
-    Module design (input output or process)
-    What should be a module 
-    Working outside tag bus
-	CVT
-	Shared memory
- 	Tag Channel Mapping
-X Template Overview
-    Runtime templates Overview
-    
-X Creating Static Module
-   Adding channels (using scripting module)
-X Creating Dynamic Module
-   Table API
-   Timing Source
-   UI Toolkit
-
-X Editor Template Overview
-   Building to an EXE
-
-
-X Collaboration
-
-
-XAdvance Topics
-Module Details description (every overide). Generate from VI description (improve VI descriptions)
-Creating new Engine (low Priority)
-Dynamic mapping
-
-X
+	Architecture discussion here(?)
+	Module 
+ 	Diagram of flow in and out
+	Engine
+	Discuss Config Editor here?
+	Timing Source
+	Palette descriptions
+	Package Description
+Application Design
+	Module design (input output or process)
+	What should be a module 
+	Working outside tag bus
+		CVT
+		Shared memory
+	Tag Channel Mapping
+Template Overview
+	Runtime templates Overview
+	Editor Template overview here?
+Creating Modules
+	Creating Static Module
+		Static Module Checklist		
+Adding channels (using scripting module)
+	Creating Dynamic Module
+		Dynamic Module Checklist
+		Table API
+		Timing Source
+		UI Toolkit
+Editor Template Overview
+	Building to an EXE
+Collaboration
+Advance Topics
+	Module Details description (every overide). Generate from VI description (improve VI descriptions)
+	Creating new Engine (low Priority)
+	Dynamic mapping
