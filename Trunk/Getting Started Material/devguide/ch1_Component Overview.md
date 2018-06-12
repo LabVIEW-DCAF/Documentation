@@ -23,7 +23,7 @@ DCAF is a large LabVIEW framework comprised of many components. This section wil
 
 A DCAF application is composed of four main pieces: a system configuration file created by the Configuration Editor, a Main VI to read and execute the file as well as handle any non-framework tasks, one or more DCAF Engines, and one or more plug-in Modules executing within those engines.
 
-![capture](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/architecture.PNG)
+![Fig 1 - Architecture](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/architecture.PNG)
 
 In the architecture diagram, all code shown in *Blue* is provided out of the box by DCAF. This code can generally be used as-is and is not intended to be modified. Code shown in *Yellow* are the plugin Modules used to customize the behavior of an application. Some modules are provided with the framework, but most applications will require the creation of additional modules. Code in *Green* is running parallel to the framework and represents customization of the Main VI.  Any application functionality that does not fit into an Engine’s execution model can still be developed outside of the framework. Common examples of this type of functionality include data streaming and waveform acquisitions.
 
@@ -62,7 +62,7 @@ Modules do not directly modify the data held within the engine but instead read 
 Take the following example to clarify the previous terminology. Let’s say a Module called Temperature Chamber Model has an Input Channel called Thermocouple Reading – the module implements reading from a thermocouple and puts the value into the Thermocouple Reading channel. This Thermocouple Reading Channel is mapped to a Tag called Temperature – the engine will then take the value that the module places onto the channel and put it on the tag. Then the Temperature Tag’s value is passed by the engine to Temperature, an Output Channel that belongs to a module called Temperature Controller Logic.
 
 
-![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/plugin-architecture.PNG)
+![Fig 2 - Plugin Architecture](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/plugin-architecture.PNG)
 
 
 DCAF allows modules to be built quickly because of a series of templates and scripting utilities. The process of module creation and their associated templates will be covered in-depth later in this guide.
@@ -76,14 +76,14 @@ DCAF is built upon a plugin scheme – this means that there is an abstract Engi
 The figure shows the code that is being executed within the engine:
 
 
-![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/standard-engine-bd.PNG)
+![Fig 3 - Main engine.lvlib:Standard Engine.vi](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/standard-engine-bd.PNG)
 *Main engine.lvlib:Standard Engine.vi*
 
 
 The run state is the case called “timed loop”. It contains a *timed structure* which, in turn, contains the input, process and output operations of each individual module. Note that it is guaranteed that all input methods are called before the process methods and that those are called before the output methods:
 
 
-![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/primary-control-loop.PNG)
+![Fig 4 - main engine.lvlib:primary control loop.vi](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/primary-control-loop.PNG)
 *main engine.lvlib:primary control loop.vi*
 
 
@@ -109,7 +109,7 @@ Note that it is a timed structure and not a timed loop because DCAF allows you t
 The wire connecting the input, process and output is the cornerstone of DCAF and contains all the tag data. It is the global repository within this engine for all the data – each module registers for a smaller subset of the available data. Looking at the process operation’s VI:
 
 
- ![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/process-operation-block-diagram.PNG)
+ ![Fig 5 - Process Operation Block Diagram](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/process-operation-block-diagram.PNG)
 
 The first VI in the case structure, `transfer table data.vi` takes the full data from the engine and pulls out the individually registered data and passes it to the module. Note that since it’s a processing module it produces data which is then merged with the engine’s tag data using the same `transfer table data.vi`. This transfer is by value, not a pointer, and takes advantage of LabVIEW’s dataflow optimizations and allows for having multiple engines each with its own, scoped data.
 
@@ -131,7 +131,7 @@ The DCAF Editor was created to show a hierarchical view of a DCAF system on the 
 
 The editor can also show the user the node data that it will save into the XML configuration through a right-click menu, as well as attempt a repair of the node.
 
-![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/temp-controller-config.PNG)
+![Fig 6 - Controller Configuration](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/temp-controller-config.PNG)
 
 Each module has its own configuration window, populated by the module itself. These windows can be either completely automatically generated, as in the case of Static Modules, or they need to be modified and UI code must be written as is the case with Dynamic Modules. To learn more about the process of creating these UIs, please view the section on Dynamic Modules as well as the Editor Template section.
 
@@ -139,13 +139,9 @@ The Engine and target itself also have configuration windows. The engine has its
 
 Having configured the system, the configuration itself must be saved, exported as a .pcfg file and deployed to every target system. At runtime, the file is used by an application to instantiate and configure all the modules before beginning execution.
 
-### 1.4.5 File API and Engine Command API
-
-TODO
-
 ## 1.5 Packages and Palettes
 
-DCAF was built in multiple layers of packages which may be useful on their own. A [dependency graph for DCAF](http://forums.ni.com/t5/Distributed-Control-Automation/DCAF-Package-Dependency-Graph/gpm-p/3539199) can be found in the community that demonstrates which packages depend on which.
+DCAF was built in multiple layers of packages which may be useful on their own. A [Dependency Graph for DCAF](http://forums.ni.com/t5/Distributed-Control-Automation/DCAF-Package-Dependency-Graph/gpm-p/3539199) can be found in the community that demonstrates which packages depend on which.
 
 From the dependency graph, packages below DCAF Tag Editor under the DCAF Core make up the bulk of DCAF itself. Packages above it provide examples and templates to improve the framework’s experience as well as the standard DCAF engine.
 
