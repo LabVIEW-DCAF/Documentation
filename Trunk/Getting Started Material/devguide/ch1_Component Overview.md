@@ -57,8 +57,6 @@ Some examples of modules built by the community are interaction an FPGA, Scan En
 
 Modules do not directly modify the data held within the engine but instead read and write to a series of local tags called Channels. These Channels are very similar to tags, but the main difference is that they have a direction – for example, Tags that are acquired or generated in the module and sent to the engine are *Input Channels*, while those that are sent from the engine to the module are *Output Channels*. Similarly, *Processing Parameters* and *Processing Results* are the inputs and outputs of a Processing Module respectively. The engine then takes care of taking the value of a Channel and passing it to an engine Tag (in the case of an Input or Processing Result), or vice-versa (in the case of an output or Processing Parameter). The link between the Channel and the Tag is called a *Mapping*, and it is defined using the *Configuration Editor*.
 
-
-
 Take the following example to clarify the previous terminology. Let’s say a Module called Temperature Chamber Model has an Input Channel called Thermocouple Reading – the module implements reading from a thermocouple and puts the value into the Thermocouple Reading channel. This Thermocouple Reading Channel is mapped to a Tag called Temperature – the engine will then take the value that the module places onto the channel and put it on the tag. Then the Temperature Tag’s value is passed by the engine to Temperature, an Output Channel that belongs to a module called Temperature Controller Logic.
 
 
