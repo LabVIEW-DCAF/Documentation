@@ -23,7 +23,7 @@ DCAF is a large LabVIEW framework comprised of many components. This section wil
 
 A DCAF application is composed of four main pieces: a system configuration file created by the Configuration Editor, a Main VI to read and execute the file as well as handle any non-framework tasks, one or more DCAF Engines, and one or more plug-in Modules executing within those engines.
 
-![capture](https://raw.githubusercontent.com/LabVIEW-DCAF/Documentation/fc075f11b680b08bf1c0f95885d69289bbacb94d/Trunk/Getting%20Started%20Material/devguide/pictures/chapter1/architecture.PNG)
+![capture](https://github.com/LabVIEW-DCAF/Documentation/blob/master/Trunk/Getting%20Started%20Material/devguide/pictures/ch1/architecture.PNG)
 
 In the architecture diagram, all code shown in *Blue* is provided out of the box by DCAF. This code can generally be used as-is and is not intended to be modified. Code shown in *Yellow* are the plugin Modules used to customize the behavior of an application. Some modules are provided with the framework, but most applications will require the creation of additional modules. Code in *Green* is running parallel to the framework and represents customization of the Main VI.  Any application functionality that does not fit into an Engine’s execution model can still be developed outside of the framework. Common examples of this type of functionality include data streaming and waveform acquisitions.
 
