@@ -166,14 +166,14 @@ The Dynamic Module template is more flexible than the Static Module template, bu
 
 * Create Module
 * Edit UI
- * Chose parameter set
- * Modify Line control
+  * Chose parameter set
+  * Modify Line control
 * Create Initialization
- * Create Mappings
- * Pass Config, including mapping info to Runtime Class
+  * Create Mappings
+  * Pass Config, including mapping info to Runtime Class
 * Write I/O (Optional)
- * Create I/O code
- * Write to Tag Bus through Mapping info (in runtime class)
+  * Create I/O code
+  * Write to Tag Bus through Mapping info (in runtime class)
 
 ### 4.2.2	Creating a Dynamic Module
 
