@@ -4,14 +4,14 @@ Before developing a new module, it is best to have a basic design for each modul
 
 When designing a module, there are a few important questions to answer.
 * Will the module implement the Input, Process, or Output methods?
- * I/O modules like the Scan Engine Module will need Input and Output methods.
- * Processing Modules for control algorithms may just need a Process method.
+  * I/O modules like the Scan Engine Module will need Input and Output methods.
+  * Processing Modules for control algorithms may just need a Process method.
 * For each method, are the needed channels static or dynamic?
- * The Scan Engine Module is dynamic because the user specifies how many channels to use and how to configure each.
- * A control algorithm can often be implemented as a static module because the numbers of inputs and outputs are known when it is being built. If a new module can be made using a static list of channels, decide the name and data type for each.
+  * The Scan Engine Module is dynamic because the user specifies how many channels to use and how to configure each.
+  * A control algorithm can often be implemented as a static module because the numbers of inputs and outputs are known when it is being built. If a new module can be made using a static list of channels, decide the name and data type for each.
 * What information needs to be configurable?
- * The Scan Engine module needs to be able to configure the channels needed as well as the Scan Period
- * A control algorithm might configure the control gains required for a particular application.
+  * The Scan Engine module needs to be able to configure the channels needed as well as the Scan Period
+  * A control algorithm might configure the control gains required for a particular application.
 
 After the basic design for each module is complete, decide which of the two module templates to use for each. This decision is usually as simple as whether or not the module uses Static or Dynamic channels for each of its methods.
 
@@ -30,20 +30,20 @@ As a final note, many modules could be of value to the rest of the DCAF develope
 
 ## 4.1.1	Static Module Checklist
 * Create the Module from the Static Module Sample Project
- * Define the Channels
+  * Define the Channels
 * Add Parameters to set desired keys.vi (optional)
 * Handle initialization (optional)
- * Handle initialization of references, sessions, parameters
- * Pass References into Runtime class if necessary, modify object to allow this
+  * Handle initialization of references, sessions, parameters
+  * Pass References into Runtime class if necessary, modify object to allow this
 * Implement the Input, Processing, and/or Output Methods as needed
- * Modify user process.vi to contain references or the Runtime class if needed and process.vi to pass data necessary to `user process.vi`
- * Add Processing code to `user process.vi`
- * Add code to input.vi to pass necessary sessions or config data to user input.vi
- * Add input code to `user input.vi`.
- * Repeat for output
+  * Modify user process.vi to contain references or the Runtime class if needed and process.vi to pass data necessary to `user process.vi`
+  * Add Processing code to `user process.vi`
+  * Add code to input.vi to pass necessary sessions or config data to user input.vi
+  * Add input code to `user input.vi`.
+  * Repeat for output
 * Programming Considerations for Run-State Methods
- * Determinism
- * Non-blocking execution
+  * Determinism
+  * Non-blocking execution
 * Specifying other properties
 * Testing and validation
 
