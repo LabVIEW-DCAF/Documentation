@@ -1,0 +1,2 @@
+# Hands-On 3: Dynamic Module
+This is an advance hands-on that covers how to create DCAF Dynamic Modules. These modules are more flexible as the final user can decide the number of channels for the module. The flexibility of this modules adds additional complexity to them.
