@@ -8,9 +8,20 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 #### Concepts Covered:
 - Dynamic Module Creation
 - Dynamic Module Configuration Class overrides
+- The use of Lines Cluster and Methods
 - Dynamic Module Runtime Class overrides
 - Dynamic Module Editor Node Class overrides
+- Use of the Table API
 - Dynamic Module Unit Testing
+- Module Level Configuration parameters
+
+#### Module Definition:
+ - This Dynamic Processing module will select between 2 input Double channel  which will be sent as an output based on a Boolean input.
+ A single module must support multiple multiplexers
+ - Input Channels will be Doubles, output will be Double and the select a Boolean.
+ - There is a scaling multiplier that affect all modules, and multiply the output. This is defined in the configuration and has a default value of 1.
+
+
 
 
 ### Part A: Dynamic Module Creation and Configuration
