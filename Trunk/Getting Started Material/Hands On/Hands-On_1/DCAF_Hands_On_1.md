@@ -37,7 +37,7 @@ Temperature Controller Logic: This is a custom DCAF Module designed to provide t
 
 Temperature Chamber Model: This module provides a simulated model of a Temperature Chamber. This module could be replaced or overwritten to eventually provide IO from a real Temperature Chamber.
 
-### Part 1: Project Creation and UI
+### Part A: Project Creation and UI
 During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
 
@@ -74,7 +74,7 @@ During this first part of the exercise you will be create a DCAF project from sc
 
 8.	Open TCRL Host Main.vi Front Panel. In the configuration file path control browse for SymulatedSystem.pcfg located at \\Temperature Controller.  Select this as default value for this control. Save and Close this VI.
  
-### Part 2: Adding Required Classes
+### Part B: Adding Required Classes
 
 DCAF has been developed using LabVIEW Object Oriented Programming. Therefore, the code will only run if the classes used within a specific configuration are added to the project. DCAF provides a simple script that will help you with this every time you add or remove modules to a target in the Configuration Editor. This is not automatic, so you have to remember to run this scripting tool when you make these kinds of changes in the configuration.
 
@@ -104,7 +104,7 @@ DCAF has been developed using LabVIEW Object Oriented Programming. Therefore, th
 
 9.	Save and close TCRL Host Module Includes.vi.
 
-### Part 3: Mapping Tags in the Configuration Editor
+### Part C: Mapping Tags in the Configuration Editor
 
 
 This DCAF project has 2 engines: The Simulation Engine and the UI Engine. Both engines have listed Tags, Mappings, and UDP items. The rest are specific modules for each engine.
@@ -197,8 +197,190 @@ fig_1_10_tags_configuration.jpg
 15.	Go to the UDP Module in the Simulation Engine. Go to the Channel Mapping Tab. Notice the tags in the From External Engine (Inputs) and To External Engine (Outputs) boxes. Notice the Fan tag is still as an Available Tag. There is no need to move it since it is not needed in the UI Engine, it is only used internally in the Simulation Engine.
 
 <p align="center">
-![Figure 1.14 Temperature Model Configuration](Pictures\fig_1_14_temperature_model_configuration_dialog.jpg)
+![Figure 1.15 UDP Config](Pictures\fig_1_15_udp_configuration.jpg)
 </p>
 <p align="center">
-*Figure 1.14*
+*Figure 1.15*
+</p>
+
+
+16.	Go back to Mappings in the Simulation Engine. Notice now there are only 3 channels that haven’t been mapped. There are no tags for those channels since they are configured statically in their corresponding modules or set as default. All the channels that originally were unmapped now appear mapped in the right pane. Take some time to review the mapping directions to have a better understanding of the data flow.
+
+
+<p align="center">
+![Figure 1.16 Mappings Configuration 2](Pictures\fig_1_16_mappings_2.jpg)
+</p>
+<p align="center">
+*Figure 1.16*
+</p>
+
+
+17.	Now that you have seen how the Simulation Engine works, step into the different components of the UI Engine to understand how it interacts with the Simulation Engine. Notice that the Inputs for the UI Engine UDP Module are the Outputs for the Simulation Engine UDP Module and vice versa.
+
+
+<p align="center">
+![Figure 1.17 UDP Configuration A](Pictures\fig_1_17_udp_configuration_a.jpg)
+![Figure 1.17 UDP Configuration b](Pictures\fig_1_17_udp_configuration_b.jpg)
+</p>
+<p align="center">
+*Figure 1.17*
+</p>
+
+
+18.	Take a look again to the dataflow diagram to review the mapping you just did.
+
+<p align="center">
+![Figure 1.18 Mapping Guide](Pictures\fig_1_7_mapping_guide.jpg)
+</p>
+<p align="center">
+*Figure 1.18*
+</p>
+
+19.	Go to File >> Save and close the Configuration Editor.
+20.	Open the Temperature Controller Example Project if not already open. Open and run Host Main.vi.
+21.	Modify the Setpoint and the other controls in the UI. You should now see the temperature being controlled by the Simulation Engine.
+
+<p align="center">
+![Figure 1.19 UI Front Panel 2](Pictures\fig_1_19_ui_front_panel_2.jpg)
+</p>
+<p align="center">
+*Figure 1.19*
+</p>
+
+## Exercise 2:Adding Standard Modules to the Temperature Control Application (TDMS & CVT)
+In Exercise 1 you developed a Simple Temperature Control Application using DCAF. Now, we will add standard features such as TDMS and CVT to learn how to add standard DCAF modules to your application.
+
+### Part A: Add TDMS
+
+Adding TDMS is a specific module that might become really handy in a DCAF application. This part of the exercise will guide you through the process of adding TDMS logging to your DCAF application.
+
+1.	Open the Temperature Controller project you developed in Exercise 1 if not already opened.
+2.	Open the Configuration Editor and load SimulatedSystem.pcfg if not already opened.
+3.	Right click the Simulation Engine and select Add>>Utilities>>TDMS datalogger as shown in Figure 2.1.
+
+
+<p align="center">
+![Figure 2.1 Add TDMS](Pictures\fig_2_1_add_TDMS.jpg)
+</p>
+<p align="center">
+*Figure 2.1*
+</p>
+
+4.	Select the TDMS datalogger item you just created. In the Static Configuration tab move Temperature, Setpoint, P, I, and D to the Configured to the Configured to Log box.
+<p align="center">
+![Figure 2.1 Add TDMS](Pictures\fig_2_2_channels_TDMS.jpg)
+</p>
+<p align="center">
+*Figure 2.1*
+</p>
+
+5.	Go to the Datalogger Configuration tab. Press the first browse button to select a File path. Browse to \\Temperature Controller\Runtime and create a folder named Data. Type Temperature Measurements as the File name.
+6.	Press the second browse button to select a Historical Directory. Browse to \\Temperature Controller\Runtime and create a folder named Historical. Type Temperature Measurements as the File name. Verify your file paths with Figure 2.3.
+
+<p align="center">
+![Figure 2.3 Datalogger Configuration](Pictures\fig_2_3_datalogger_configuration.jpg)
+</p>
+<p align="center">
+*Figure 2.3*
+</p>
+
+7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in Exercise 1>>Part 2>>Step 7 to update the classes in TCRL Host Module Includes.vi. Verify the class has been successfully added to TCRL Host Module Includes.vi.
+
+<p align="center">
+![Figure 2.4 Host Includes Block Diagram](Pictures\fig_2_4_host_includes_block_diagram.jpg)
+</p>
+<p align="center">
+*Figure 2.4*
+</p>
+
+8.	Run TCRL Host Main.vi. Do some changes to the setpoint and verify it still working and stop the VI.
+9.	Go to the Historical folder you created located at \\Temperature Controller\Runtime\Historical and open the TDMS file just created. Verify the tags you added in the TDMS datalogger modules appear in the file and generated data.
+
+<p align="center">
+![Figure 2.5 TDMS File](Pictures\fig_2_5_tdms_file.jpg)
+</p>
+<p align="center">
+*Figure 2.5*
+</p>
+
+
+### Part 2: Add CVT
+
+
+Sometimes you will need to share tags with code that might run asynchronously in parallel with the DCAF engine. Current Value Table (CVT) is a component that provides a simple interface between DCAF and other LabVIEW code.
+During this part of the exercise we will publish the Temperature tag and visualize it in the Front Panel of your TCRL Host Main.vi.
+1.	Open the Temperature Controller project if not already opened.
+2.	Open the Configuration Editor and load SimulatedSystem.pcfg if not already opened.
+3.	Add a CVT module to the Simulation Engine in the same way you added the TDMS datalogger.
+4.	Select the CVT module. Select To CVT direction.
+
+<p align="center">
+![Figure 2.6 CVT Direction](Pictures\fig_2_6_cvt_direction.jpg)
+</p>
+<p align="center">
+*Figure 2.6*
+</p>
+
+5.	Move Temperature to the To CVT box.
+
+
+<p align="center">
+![Figure 2.7 CVT Configuration A](Pictures\fig_2_7_cvt_configuration_a.jpg)
+![Figure 2.7 CVT Configuration B](Pictures\fig_2_7_cvt_configuration_b.jpg)
+</p>
+<p align="center">
+*Figure 2.7*
+</p>
+
+6.	Save your configuration.
+7.	Open TCRL Host Main.vi Block Diagram. Add a Read VI from the Current Value Table Function Palette. By default it is a double. Connect a string constant to the Tag Name Terminal and type Temperature.
+
+<p align="center">
+![Figure 2.8 CVT Pallet](Pictures\fig_2_8_cvt_pallet.jpg)
+</p>
+<p align="center">
+*Figure 2.8*
+</p>
+
+8.	Finish the code as shown in Figure 2.9
+<p align="center">
+![Figure 2.8 CVT Block Diagram](Pictures\fig_2_9_cvt_block_diagram.jpg)
+</p>
+<p align="center">
+*Figure 2.8*
+</p>
+
+9.	Rearrange the front panel Indicators such that the new Temperature indicator is visible as shown in Figure 2.8.
+
+<p align="center">
+![Figure 2.10 CVT Front Panel](Pictures\fig_2_10_cvt_front_panel.jpg)
+</p>
+<p align="center">
+*Figure 2.10*
+</p>
+
+10.	Save the changes in TCRL Host Main.vi. Go back to the Configuration Editor and update the classes for TCRL Host Module Includes.vi as you did for the TDMS Datalogger Module. Verify the CVT class is added to TCRL Host Module Includes.vi.
+
+<p align="center">
+![Figure 2.11 Host Includes Block Diagram](Pictures\fig_2_11_host_includes_block_diagram_2.jpg)
+</p>
+<p align="center">
+*Figure 2.11*
+</p>
+
+11.	Run TCRL Host Main.vi. The UI should still be working. Verify the value displayed in the new Temperature indicator in TCRL Host Main.vi corresponds to the value displayed in the Temperature chart in TCRL User Interface.vi
+<p align="center">
+![Figure 2.12 UIS](Pictures\fig_2_12_uis.jpg)
+</p>
+<p align="center">
+*Figure 2.12*
+</p>
+
+12.	Stop and close TCRL Host Main.vi.
+13.	Take a look to the following diagram to verify the updated mappings.
+<p align="center">
+![Figure 2.13 UIS](Pictures\fig_2_13_mappings.jpg)
+</p>
+<p align="center">
+*Figure 2.13*
 </p>
