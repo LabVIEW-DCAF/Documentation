@@ -5,7 +5,35 @@ This hands-on covers the basics of implementing an application in the Distribute
 #### Setup
 
 ## Introduction
+Most control applications have similar challenges and needs. By working with different large control applications, we managed to identify most of this common challenges and needs and created DCAF to provide a standard framework to develop control applications.  
 
+Most of these challenges are related to having different processes running in parallel that need to share data without falling into race conditions. DCAF provides the capability of creating synchronized engines to run standard and custom modules and defining the mapping of data between them through a simple interface known as the Configuration Editor.
+
+Before we start with the Exercises we need to understand some basic terminology of how a DCAF system is structured.
+
+
+**System**: Your System will consist of one or more targets containing the one or more DCAF Engines.   
+**Target**: A Target will represent the physical device that will run one or more Engines. A Target could be a PC or a CRIO.
+
+**Engine**: The Engine will be in charge of executing Modules in a synchronous way and transfer data between them through the Tag Bus.
+
+**Module**: Piece of code with a specific functionality that will be executed within an Engine. Some standard Modules are installed with DCAF, but you can create your own modules.
+
+Once we have defined the terminology to understand the hierarchy of a DCAF system, we need to understand how the data flows through a DCAF system. Data can be passed between Modules, Engines and even Targets.  Here is some more terminology related to dataflow in DCAF.
+
+
+**Channels**: Parameters that allow access to and from a Module. Channels can be Inputs, Outputs, Processing Parameters and Processing Results – note that the direction is taken to be from the engine’s point of view
+**Tags**: Scalar variables saved in a single repository (Tag Bus) that can be accessed by any Module within an Engine. A Tag can be defined as a connecting point between Channels from different Modules.  
+
+**Mappings**: Mappings are the connections between Tags and Channels. If you want a specific Channel to write or read a value on a specific Tag you will have to map them.
+
+Take the following example to clarify the previous terminology. Let’s say a Module called Temperature Chamber Model has an Input Channel called Thermocouple Reading – the module implements reading from a thermocouple and puts the value into the Thermocouple Reading channel. This Thermocouple Reading Channel is mapped to a Tag called Temperature – the engine will then take the value that the module places onto the channel and put it on the tag. Then the Temperature Tag’s value is passed by the engine to Temperature, an Output Channel that belongs to a module called Temperature Controller Logic. 
+
+<p align="center">
+![Figure 1 Mappings Tags and Channels](Pictures\fig_i_1_mappings_tags_channels.jpg)
+</p>
+
+<p align="left"></p>
 
 ## Exercise 1:
 This exercise demonstrates the implementation of a simple temperature chamber controller application. It makes use of a model of the chamber to simulate its I/O and allows users to define the setpoint and PID gains of the control algorithm through a simple user interface.
