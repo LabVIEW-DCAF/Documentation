@@ -1,6 +1,7 @@
 # DCAF Hands on
 
-There are 3  hands-on  will get you started with DCAF 
+The older versions of the Hands On can be found in the Old Directory.
+There are 3  hands-on  will get you started with DCAF
 
 # Hands-On 1: Creating a DCAF Application
 This is the recommended start point for DCAF in this Hands On we will cover how to create a DCAF application and configure it using modules that already exist. 
