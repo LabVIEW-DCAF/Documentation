@@ -30,11 +30,84 @@ In this exercise we will create a DCAF Static module that contains a custom PID 
 This is processing module that will contain a single PID. Initially it will have some values hardcoded and will be updated to change so they can be updated by the engine.
 
 ### Part A: Create a Static PID Module
-1. Create module from template
-2. Implement the user process
-3. Test the user process stand alone
-4. Add module to Configuration
-5. Run DCAF application
+#####Create module from template
+1. Navigate to **Project >> Create Project…**
+2. In the tree on the left, select **DCAF >> Modules** and select **DCAF Static Channel Module**.
+3. Type **Custom Temperature Controller** as the **Module Name**.
+4. Look for the Project Root **\\Temperature Controller\Module** and create a folder called **Custom Temperature Controller**. Get into that folder and press **Current Folder**.
+6. Add the following parameters to your new module as **Channels** in the **Channel Specifications** tab. Channels represent data passed to or from your module during different execution stages, and channel names are case sensitive. The direction specifies whether the data is to the module or from the module, and is divided into inputs (data provided by input.vi), outputs (data provided to output.vi), and processing parameters and results (data passed to and from process.vi). For this hands on we will implement a processing step.
+
+Name               | 	Type   |  Direction
+--                 |  ---    |--
+Temperature        | Double  |  Processing Parameter
+Setpoint           | Double  |  Processing Parameter
+Output Range High  | Double  |  Processing Parameter   
+Output Range Low   | Double  |  Processing Parameter   
+Output             |  Double |  Processing Result
+
+
+Your configuration should look like the one shown in Figure 1.1.
+
+<p align="center">
+![Figure 1.1 Module Configuration](Pictures\fig_1_1_module_configuration.jpg)
+</p>
+<p align="center">
+*Figure 1.1*
+</p>
+7.	Press Finish.
+
+##### Implement the user process
+8. 	Your new project will appear. Navigate to **Custom Controller Module runtime.lvclass** and open **user process.vi**. This method should have two clusters, one input and one output, which match the list of tags above. This clusters were created based on the table you just filled in.
+<p align="center">
+![Figure 1.2 Initial User Process](Pictures\fig_1_2_initial_user_process.jpg)
+</p>
+<p align="center">
+*Figure 1.2*
+</p>
+
+9. Implement the same PID control as shown in the Figure 1.3
+
+<p align="center">
+![Figure 1.3 Intermediate User Process](Pictures\fig_1_3_intermediate_user_process.jpg)
+</p>
+<p align="center">
+*Figure 1.3*
+</p>
+
+<ol type="a">
+<li>	Drop down an instance of PID.vi from Control and Simulation >> PID >> PID.vi.
+<li>	Drop down the following functions: 1 Unbundle by Name, 2 Bundle functions, 1 Bundle by Name function, and a Select function.</li>
+<li>	Wire the Unbundle by Name function to the Parameters to process cluster. Expand all the terminals.</li>
+<li>	Wire Parameters to process.Temperature to PID.vi process variable input.</li>
+<li>	Wire Parameters to process.setpoint to PID.vi setpoint input.</li>
+<li>	Bundle Parameters to process.output range high and Parameters to process.output range low and wire the cluster to PID.vi output range input.</li>
+<li>	Bundle Parameters to process.Kc, Parameters to process.Ti, and Parameters to process.Td and wire the cluster to PID.vi PID gains input. </li>
+<li>	Create a constant from Results from processing indicator and connect it to the Bundle by Name input cluster terminal. Expand the Unbundle by Name Function to have 2 terminals. </li>
+<li>	Wire Parameters to process.Fan on? to the Select function and set the two values as t=100 and f=0. Wire the output of this function to the Results from processing.fan value. </li>
+<li>	Wire PID.vi output to Results from processing.lamp. </li>
+<li>	The result should look something like Figure 1.3.</li>
+</ol>
+
+11.	Save the new project and close it.
+
+**Add module to Configuration**
+
+12. Open Standard Configuration Editor (**Open Tools >> DCAF >> Launch Standard Configuration Editor…**).
+13.	Navigate to **Tools >> Edit Plugin Search Paths**.
+14.	Press Add and navigate to the location of your new control module (**\\Temperature Controller\Module\Custom Temperature Controller**).
+15. Open Static Temperature Controller.pfcg in the exercise folder.
+16.	Now, right click on Standard Engine and select **Add >> Other>>Custom Controller Module**. Then, select this new module from the tree.
+17.	For each processing parameter tag, right click on the column Mapped to System Tag and configure the channel to be mapped to the appropriate system tag. You can look at “Temperature Controller Logic” to identify the correct mapping, which looks like Figure 1.4:
+18.
+<p align="center">
+![Figure 1.4 Intermediate User Process](Pictures\fig_1_4_intermediate_configuration.jpg)
+</p>
+<p align="center">
+*Figure 1.4*
+</p>
+
+
+**5. Run DCAF application**
 
 
 
@@ -43,6 +116,10 @@ This is processing module that will contain a single PID. Initially it will have
 1. Update the clusters
 2. Run the scripting
 3. Test the user Process
+
+
+
+### Part C: Running and Configuring the Module
 
 
 ## Exercise 2:
