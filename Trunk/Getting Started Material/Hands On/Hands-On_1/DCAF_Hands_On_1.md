@@ -282,9 +282,9 @@ In Exercise 1 you developed a Simple Temperature Control Application using DCAF.
 
 Adding TDMS is a specific module that might become really handy in a DCAF application. This part of the exercise will guide you through the process of adding TDMS logging to your DCAF application.
 
-1.	Open the Temperature Controller project you developed in Exercise 1 if not already opened.
-2.	Open the Configuration Editor and load SimulatedSystem.pcfg if not already opened.
-3.	Right click the Simulation Engine and select Add>>Utilities>>TDMS datalogger as shown in Figure 2.1.
+1.	Open the **Temperature Controller** project you developed in Exercise 1 if not already opened.
+2.	Open the **Configuration Editor** and load** SimulatedSystem.pcfg** if not already opened.
+3.	Right click the **Simulation Engine** and select **Add>>Utilities>>TDMS datalogger** as shown in Figure 2.1.
 
 
 <p align="center">
@@ -294,7 +294,7 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 *Figure 2.1*
 </p>
 
-4.	Select the TDMS datalogger item you just created. In the Static Configuration tab move Temperature, Setpoint, P, I, and D to the Configured to the Configured to Log box.
+4.	Select the **TDMS datalogger** item you just created. In the Static Configuration tab move Temperature, Setpoint, P, I, and D to the **Configured to Log** box.
 <p align="center">
 ![Figure 2.1 Add TDMS](Pictures\fig_2_2_channels_TDMS.jpg)
 </p>
@@ -302,8 +302,8 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 *Figure 2.1*
 </p>
 
-5.	Go to the Datalogger Configuration tab. Press the first browse button to select a File path. Browse to \\Temperature Controller\Runtime and create a folder named Data. Type Temperature Measurements as the File name.
-6.	Press the second browse button to select a Historical Directory. Browse to \\Temperature Controller\Runtime and create a folder named Historical. Type Temperature Measurements as the File name. Verify your file paths with Figure 2.3.
+5.	Go to the **Datalogger Configuration** tab. Press the first browse button to select a File path. Browse to** \\Temperature Controller\Runtime** and create a folder named **Data**. Type Temperature Measurements as the File name.
+6.	Press the second browse button to select a Historical Directory. Browse to **\\Temperature Controller\Runtime** and create a folder named **Historical**. Type **Temperature Measurements** as the File name. Verify your file paths with Figure 2.3.
 
 <p align="center">
 ![Figure 2.3 Datalogger Configuration](Pictures\fig_2_3_datalogger_configuration.jpg)
@@ -312,7 +312,7 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 *Figure 2.3*
 </p>
 
-7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in Exercise 1>>Part 2>>Step 7 to update the classes in TCRL Host Module Includes.vi. Verify the class has been successfully added to TCRL Host Module Includes.vi.
+7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in **Exercise 1>>Part 2>>Step 7** to update the classes in **TCRL Host Module Includes.vi**. Verify the class has been successfully added to **TCRL Host Module Includes.vi**.
 
 <p align="center">
 ![Figure 2.4 Host Includes Block Diagram](Pictures\fig_2_4_host_includes_block_diagram.jpg)
@@ -321,8 +321,9 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 *Figure 2.4*
 </p>
 
-8.	Run TCRL Host Main.vi. Do some changes to the setpoint and verify it still working and stop the VI.
+8.**	Run TCRL Host Main.vi**. Do some changes to the setpoint and verify it still working and stop the VI.
 9.	Go to the Historical folder you created located at \\Temperature Controller\Runtime\Historical and open the TDMS file just created. Verify the tags you added in the TDMS datalogger modules appear in the file and generated data.
+**Note**: if the file is not in **Historical** folder, the configuration migth be worng or the file is open and it is still on the **Data** folder.
 
 <p align="center">
 ![Figure 2.5 TDMS File](Pictures\fig_2_5_tdms_file.jpg)
@@ -337,10 +338,10 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 
 Sometimes you will need to share tags with code that might run asynchronously in parallel with the DCAF engine. Current Value Table (CVT) is a component that provides a simple interface between DCAF and other LabVIEW code.
 During this part of the exercise we will publish the Temperature tag and visualize it in the Front Panel of your TCRL Host Main.vi.
-1.	Open the Temperature Controller project if not already opened.
-2.	Open the Configuration Editor and load SimulatedSystem.pcfg if not already opened.
+1.	Open the** Temperature Controller** project if not already opened.
+2.	Open the **Configuration Editor** and load **SimulatedSystem.pcfg** if not already opened.
 3.	Add a CVT module to the Simulation Engine in the same way you added the TDMS datalogger.
-4.	Select the CVT module. Select To CVT direction.
+4.	Select the **CVT** module. Select **To CVT** direction.
 
 <p align="center">
 ![Figure 2.6 CVT Direction](Pictures\fig_2_6_cvt_direction.jpg)
@@ -361,7 +362,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 </p>
 
 6.	Save your configuration.
-7.	Open TCRL Host Main.vi Block Diagram. Add a Read VI from the Current Value Table Function Palette. By default it is a double. Connect a string constant to the Tag Name Terminal and type Temperature.
+7.	Open **TCRL Host Main.vi** Block Diagram. Add a **Read** VI from the **Current Value Table** Function Palette. By default it is a double. Connect a string constant to the **Tag Name Terminal** and type **Temperature**.
 
 <p align="center">
 ![Figure 2.8 CVT Pallet](Pictures\fig_2_8_cvt_pallet.jpg)
@@ -378,7 +379,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 *Figure 2.8*
 </p>
 
-9.	Rearrange the front panel Indicators such that the new Temperature indicator is visible as shown in Figure 2.8.
+9.	Rearrange the front panel Indicators such that the new **Temperature** indicator is visible as shown in Figure 2.8.
 
 <p align="center">
 ![Figure 2.10 CVT Front Panel](Pictures\fig_2_10_cvt_front_panel.jpg)
@@ -387,7 +388,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 *Figure 2.10*
 </p>
 
-10.	Save the changes in TCRL Host Main.vi. Go back to the Configuration Editor and update the classes for TCRL Host Module Includes.vi as you did for the TDMS Datalogger Module. Verify the CVT class is added to TCRL Host Module Includes.vi.
+10.	Save the changes in **TCRL Host Main.vi**. Go back to the Configuration Editor and update the classes for **TCRL Host Module Includes.vi** as you did for the TDMS Datalogger Module. Verify the CVT class is added to **TCRL Host Module Includes.vi.**
 
 <p align="center">
 ![Figure 2.11 Host Includes Block Diagram](Pictures\fig_2_11_host_includes_block_diagram_2.jpg)
@@ -396,7 +397,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 *Figure 2.11*
 </p>
 
-11.	Run TCRL Host Main.vi. The UI should still be working. Verify the value displayed in the new Temperature indicator in TCRL Host Main.vi corresponds to the value displayed in the Temperature chart in TCRL User Interface.vi
+11.	Run **TCRL Host Main.vi**. The UI should still be working. Verify the value displayed in the new Temperature indicator in **TCRL Host Main.vi** corresponds to the value displayed in the **Temperature** chart in **TCRL User Interface.vi**
 <p align="center">
 ![Figure 2.12 UIS](Pictures\fig_2_12_uis.jpg)
 </p>
@@ -404,7 +405,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 *Figure 2.12*
 </p>
 
-12.	Stop and close TCRL Host Main.vi.
+12.	Stop and close **TCRL Host Main.vi**.
 13.	Take a look to the following diagram to verify the updated mappings.
 <p align="center">
 ![Figure 2.13 UIS](Pictures\fig_2_13_mappings.jpg)
