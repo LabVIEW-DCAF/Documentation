@@ -9,9 +9,9 @@ DCAF Static modules are simple custom modules that are easy to create with the r
 
 Before creating a DCAF Static module there is an important checklist to cover:
 
-1. Is there a module that already covers this functionality
-2. Is this a static or a dynamic module
-3. What are the inputs and outputs to my module.
+- Is there a module that already covers this functionality?
+- Is this a static or a dynamic module?
+- What inputs or outputs my module needs?
 
 In each exercise will go through this checklist during the module definition, and a more on how to define DCAF modules can be found in the DCAF developer guide in section 4.
 
@@ -22,19 +22,38 @@ In this exercise we will create a DCAF Static module that contains a custom PID 
 #### Concepts Covered:
 - Static Module Creation
 - Basic Static Module overrides
+- Static channel Configuration
 - Working with the User Process VI
 - Static Module Scripting
 
 
 #### Module Definition:
 This is processing module that will contain a single PID. Initially it will have some values hardcoded and will be updated to change so they can be updated by the engine.
+- Is there a module that already covers this functionality?
+In this case yes there is a PID module for DCAF that could be used, but as we want to go with the exercise we are going to ignore it.
+-Is this a static or dynamic modules?
+The module only needs 1 pid, and we know the inputs required for the PID so it is a static module.
+-What inputs or outputs my module needs?
+This is a processing module all its inputs come from the Tag Bus and all the outputs go into the Tag Bus. The initial channel list is the following one:
+
+Name               | 	Type   |  Direction
+--                 |  ---    |--
+Temperature        | Double  |  Processing Parameter
+Setpoint           | Double  |  Processing Parameter
+Output Range High  | Double  |  Processing Parameter   
+Output Range Low   | Double  |  Processing Parameter   
+Output             | Double  |  Processing Result
+
+This channel list will change during the exercise.
+
+
 
 ### Part A: Create a Static PID Module
-#####Create module from template
+##### Create module from template
 1. Navigate to **Project >> Create Project…**
 2. In the tree on the left, select **DCAF >> Modules** and select **DCAF Static Channel Module**.
 3. Type **Custom Temperature Controller** as the **Module Name**.
-4. Look for the Project Root **\\Temperature Controller\Module** and create a folder called **Custom Temperature Controller**. Get into that folder and press **Current Folder**.
+4. Look for the Project Root **\\Temperature Controller\Modules** and create a folder called **Custom Temperature Controller**. Get into that folder and press **Current Folder**.
 6. Add the following parameters to your new module as **Channels** in the **Channel Specifications** tab. Channels represent data passed to or from your module during different execution stages, and channel names are case sensitive. The direction specifies whether the data is to the module or from the module, and is divided into inputs (data provided by input.vi), outputs (data provided to output.vi), and processing parameters and results (data passed to and from process.vi). For this hands on we will implement a processing step.
 
 Name               | 	Type   |  Direction
@@ -43,20 +62,78 @@ Temperature        | Double  |  Processing Parameter
 Setpoint           | Double  |  Processing Parameter
 Output Range High  | Double  |  Processing Parameter   
 Output Range Low   | Double  |  Processing Parameter   
-Output             |  Double |  Processing Result
+Output             | Double  |  Processing Result
 
 
 Your configuration should look like the one shown in Figure 1.1.
 
 <p align="center">
-![Figure 1.1 Module Configuration](Pictures\fig_1_1_module_configuration.jpg)
+![Figure 1.1 Custom Temperature Controller Creation.JPG](Pictures\custom_temperature_controller_creation.JPG)
 </p>
 <p align="center">
 *Figure 1.1*
 </p>
-7.	Press Finish.
+7.	Press Finish. </br>
+ <p align="center">
+![Figure 1.2 Custom Temperature Controller Project.JPG](Pictures\custom_temperature_controller_project.JPG)
+</p>
+<p align="center">
+*Figure 1.2*
+</p>
 
-##### Implement the user process
+8. Your new project will appear. Navigate to **Custom Controller Module runtime.lvclass** and open **user process.vi**. This method should have two clusters, one input and one output, which match the list of tags above. This clusters were created based on the table you just filled in.
+<p align="center">
+![Figure 1.2 Custom Temperature Controller Project.JPG](Pictures\ctc_new.JPG)
+</p>
+<p align="center">
+*Figure 1.3*
+</p>
+
+
+9.	Open process.vi in the overrides folder.
+<p align="center">
+![Figure 1.4 Custom Temperature Controller Process.JPG](Pictures\ctc_process.JPG)
+</p>
+<p align="center">
+*Figure 1.4*
+</p>
+On either side, Scripted Accessors convert tag bus data into your user-defined cluster. These methods are not automatically generated by the project scripting tool and must be generated when the project is first scripted or after any change to the interface. we will cover how to make changes to this VIs in Part B of this exercise. This accessors will look like figure 1.5.
+<p align="center">
+![Figure 1.4 Custom Temperature Controller Accessors New .JPG](Pictures\ctc_accessors_new.JPG)
+</p>
+<p align="center">
+*Figure 1.4*
+</p>
+
+
+### Part B: Update the Static PID Module with scripting
+As with any project requirment changed and we need to set the P,I,D values also through channels in this section we are going to update our module si its channel list matches this table:
+
+Name               | 	Type   |  Direction
+--                 |  ---    |--
+Temperature        | Double  |  Processing Parameter
+Setpoint           | Double  |  Processing Parameter
+Output Range High  | Double  |  Processing Parameter   
+Output Range Low   | Double  |  Processing Parameter   
+P                  | Double  |  Processing Parameter  
+I                  | Double  |  Processing Parameter   
+D                  | Double  |  Processing Parameter    
+Output             | Double  |  Processing Result
+
+
+
+1. Update the clusters
+2. Run the scripting
+a.	Open Tools >> DCAF >> Launch Control Module Scripting Utility…
+b.	Drag the runtime class from the project over the runtime class path control or browse for it manually, then repeat for the configuration class (YourModuleName Configuration.lvclass).
+c.	Because you used the script, you can leave most options as the default and press Run.
+
+3. Test the user Process
+
+
+
+### Part C: Implement the user process
+Test
 8. 	Your new project will appear. Navigate to **Custom Controller Module runtime.lvclass** and open **user process.vi**. This method should have two clusters, one input and one output, which match the list of tags above. This clusters were created based on the table you just filled in.
 <p align="center">
 ![Figure 1.2 Initial User Process](Pictures\fig_1_2_initial_user_process.jpg)
@@ -90,7 +167,7 @@ Your configuration should look like the one shown in Figure 1.1.
 
 11.	Save the new project and close it.
 
-**Add module to Configuration**
+### Part C: Running and Configuring the Module
 
 12. Open Standard Configuration Editor (**Open Tools >> DCAF >> Launch Standard Configuration Editor…**).
 13.	Navigate to **Tools >> Edit Plugin Search Paths**.
@@ -107,19 +184,9 @@ Your configuration should look like the one shown in Figure 1.1.
 </p>
 
 
-**5. Run DCAF application**
 
 
 
-
-### Part B: Updating a DCAF Static Module with Scripting
-1. Update the clusters
-2. Run the scripting
-3. Test the user Process
-
-
-
-### Part C: Running and Configuring the Module
 
 
 ## Exercise 2:
@@ -169,7 +236,7 @@ In addition to this the module will have a parameter that defines the initial st
 
 
 
-### Part B: Create a a DCAF Application that runs the Static Module
+### Part B: Create a DCAF Application that runs the Static Module
 1. Create a new project with the Basic Execution Template
 2. Create a new vi for the UI that looks like figure 2.2
 3. Create a DCAF configuration that maps the state machine to the UI using the UI modules
