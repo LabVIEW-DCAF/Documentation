@@ -303,5 +303,6 @@ In addition to this the module will have a parameter that defines the initial st
 <figure>
   <p align ="center">
   <img src="Pictures/state_machine_ui.jpg" alt="State Machine UI" align="center">
+  <p align ="center">
   <figcaption align ="center">Figure 2.2 State Machine UI.</figcaption>
 </figure>
