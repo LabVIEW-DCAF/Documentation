@@ -226,10 +226,18 @@ li>	Create a constant from **PID.vi PID gains input**. and wire it to **Bundle b
 24. Open the **Temperature Chamber** Project located in **\\Temperature Controller\**
 25. Verify the File path is the same as the one you use to store the configuration.
 
-![Figure 1.13 Custom Temperature Controller Includes Block Diagram](Pictures/ctc_file_path.jpg)
-
+![Figure 1.13 Custom Temperature Controller Includes Block Diagram](Pictures/ctc_file_path.jpg  "*Figure 1.13*")
 
 *Figure 1.13*
+
+|![Figure 1.13 Custom Temperature Controller Includes Block Diagram](Pictures/ctc_file_path.jpg)|
+|:--:|
+| *Figure 1.13*  |
+
+
+
+
+
 
 
 **Note:** If the configuration file name is not valid you will receive error 538500
