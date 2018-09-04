@@ -300,6 +300,7 @@ In addition to this the module will have a parameter that defines the initial st
 3. Create a DCAF configuration that maps the state machine to the UI using the UI modules
 4. Run the application and test.
 <br>
-![State Machine UI](Pictures/state_machine_ui.jpg)
-
+<p align="center">
+![State Machine UI](Pictures/state_machine_ui.jpg "Figure 2.2")
+<p align="center">
 *Figure 2.2*
