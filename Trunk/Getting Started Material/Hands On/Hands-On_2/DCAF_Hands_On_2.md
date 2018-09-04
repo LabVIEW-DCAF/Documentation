@@ -68,14 +68,15 @@ Output             | Double  |  Processing Result
 Your configuration should look like the one shown in Figure 1.1.
 
 <p align="center">
-![Figure 1.1 Custom Temperature Controller Creation.JPG](Pictures\custom_temperature_controller_creation.JPG)
+<img src="Pictures\custom_temperature_controller_creation.JPG" alt="Figure 1.1 Custom Temperature Controller Creation.JPG">
+![Figure 1.1 Custom Temperature Controller Creation.JPG](Pictures/custom_temperature_controller_creation.JPG)
 </p>
 <p align="center">
 *Figure 1.1*
 </p>
 7.	Press Finish. </br>
  <p align="center">
-![Figure 1.2 Custom Temperature Controller Project.JPG](Pictures\custom_temperature_controller_project.JPG)
+![Figure 1.2 Custom Temperature Controller Project.JPG](\Pictures\custom_temperature_controller_project.JPG)
 </p>
 <p align="center">
 *Figure 1.2*
@@ -83,7 +84,7 @@ Your configuration should look like the one shown in Figure 1.1.
 
 8. Your new project will appear. Navigate to **Custom Controller Module runtime.lvclass** and open **user process.vi**. This method should have two clusters, one input and one output, which match the list of tags above. This clusters were created based on the table you just filled in.
 <p align="center">
-![Figure 1.2 Custom Temperature Controller Project.JPG](Pictures\ctc_new.JPG)
+![Figure 1.2 Custom Temperature Controller Project.JPG](/Pictures/ctc_new.JPG)
 </p>
 <p align="center">
 *Figure 1.3*
@@ -303,6 +304,6 @@ In addition to this the module will have a parameter that defines the initial st
 3. Create a DCAF configuration that maps the state machine to the UI using the UI modules
 4. Run the application and test.
 <p align="center">
-![Figure 1.2 State Machine UI](Pictures\state_machine_ui.jpg)
+![Figure 1.2 State Machine UI](/Pictures/state_machine_ui.jpg)
 </p>
 <p align="center">
