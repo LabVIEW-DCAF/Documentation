@@ -69,7 +69,7 @@ Your configuration should look like the one shown in Figure 1.1.
 
 <p align="center">
 <img src="Pictures\custom_temperature_controller_creation.JPG" alt="Figure 1.1 Custom Temperature Controller Creation.JPG">
-![Figure 1.1 Custom Temperature Controller Creation](Pictures/custom_temperature_controller_creation.JPG)
+![Custom Temperature Controller Creation](Pictures/custom_temperature_controller_creation.JPG)
 </p>
 <p align="center">
 *Figure 1.1*
@@ -77,7 +77,8 @@ Your configuration should look like the one shown in Figure 1.1.
 7.	Press Finish. </br>
  <p align="center">
  <img src="Pictures/custom_temperature_controller_project.JPG" alt="Custom Temperature Controller Project">
-![Figure 1.2 Custom Temperature Controller Project.JPG](\Pictures\custom_temperature_controller_project.JPG)
+
+![Figure 1.2 Custom Temperature Controller Project.JPG](Pictures\custom_temperature_controller_project.JPG)
 </p>
 <p align="center">
 *Figure 1.2*
@@ -129,6 +130,10 @@ Output             | Double  |  Processing Result
 
 ##### Update the clusters
 10. Open the **parameter user data.ctl**
+
+![Figure 1.6 Custom Temperature Controller Parameter Project .JPG](Pictures/ctc_parameter_project.JPG)
+
+
 <p align="center">
  <img src="" alt="">
 ![Figure 1.6 Custom Temperature Controller Parameter Project .JPG](Pictures\ctc_parameter_project.JPG)
