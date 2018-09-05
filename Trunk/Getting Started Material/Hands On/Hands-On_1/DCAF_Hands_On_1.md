@@ -192,7 +192,7 @@ fig_1_10_tags_configuration.jpg
 12.	Verify your table looks like the following image:
 
 
-|![Figure 1.13 Mapping Configuration Dialog](Pictures/fig_1_13_mapping_configuration_dialog.jpg)
+|![Figure 1.13 Mapping Configuration Dialog](Pictures/mapping_configuration_dialog.jpg)
 |:--:|
 |*Figure 1.13*
 
