@@ -13,7 +13,7 @@ Most of these challenges are related to having different processes running in pa
 Before we start with the Exercises we need to understand some basic terminology of how a DCAF system is structured.
 
 **System**: Your System will consist of one or more targets containing the one or more **DCAF Engines**.</br>
-**Target**: A **Target** will represent the physical device that will run one or more** Engines**. A **Target** could be a PC or a CRIO.</br>
+**Target**: A **Target** will represent the physical device that will run one or more **Engines**. A **Target** could be a PC or a CRIO.</br>
 **Engine**: The Engine will be in charge of executing **Modules** in a synchronous way and transfer data between them through the **Tag Bus**.</br>
 **Module**: Piece of code with a specific functionality that will be executed within an Engine. Some standard Modules are installed with DCAF, but you can create your own modules.</br>
 
@@ -55,7 +55,7 @@ In the hierarchy shown above you can find some of the components defined in the 
 ### Part A: Project Creation and UI
 During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
-1.	In LabVIEW go to *|*File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
+1.	In LabVIEW go to **File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
 2.	Name the project **Temperature Controller** and select **\\Desktop\DCAF Hands On\Exercises\Temperature Controller\Runtime\Temperature Controller** as the Project Root. Type **TCRL** as the *|*File Name Prefix**.
 3.	Verify your project window matches Figure 1.2.
 
