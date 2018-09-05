@@ -340,7 +340,7 @@ During this part of the exercise we will publish the Temperature tag and visuali
 7.	Open **TCRL Host Main.vi** Block Diagram. Add a **Read** VI from the **Current Value Table** Function Palette. By default it is a double. Connect a string constant to the **Tag Name Terminal** and type **Temperature**.
 
 
-|![Figure 2.8 CVT Pallet](Pictures/fig_2_8_cvt_pallet.jpg)
+|![Figure 2.8 CVT Pallet](Pictures/cvt_pallet.jpg)
 |:--:|
 |*Figure 2.8*
 
