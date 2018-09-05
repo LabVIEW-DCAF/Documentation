@@ -294,7 +294,7 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in **Exercise 1>>Part 2>>Step 7** to update the classes in **TCRL Host Module Includes.vi**. Verify the class has been successfully added to **TCRL Host Module Includes.vi**.
 
 
-|![Figure 2.4 Host Includes Block Diagram](Pictures/ex2_host_includes_block_diagram_2.jpg)
+|![Figure 2.4 Host Includes Block Diagram](Pictures/ex2_host_includes_block_diagram.jpg)
 |:--:|
 |*Figure 2.4*
 
