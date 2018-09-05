@@ -192,7 +192,7 @@ fig_1_10_tags_configuration.jpg
 12.	Verify your table looks like the following image:
 
 
-|![Figure 1.13 Mapping Configuration Dialog](Pictures/mapping_configuration_dialog.jpg)
+|![Figure 1.13 Temperature Control Logic Configuration.jpg](Pictures/temperature_control_logic_configuration.jpg)
 |:--:|
 |*Figure 1.13*
 
