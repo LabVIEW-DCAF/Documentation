@@ -36,7 +36,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 1. Update the Create test configuration VI
 1. Update the to string and from String Unit test
 1. Implement the From String Array to String Array
-1. Update the From String Array to String Arrayg Unit test
+1. Update the From String Array to String Array Unit test
 
 
 ### Part B: Dynamic Module Runtime
