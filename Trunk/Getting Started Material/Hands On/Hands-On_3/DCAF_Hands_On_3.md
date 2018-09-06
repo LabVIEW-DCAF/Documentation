@@ -26,16 +26,17 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 ### Part A: Dynamic Module Creation and Configuration
 1. Create the multiplexer module:
-2. Allow multiple instances
-3. Can run on any target
-4. Supports only doubles and Booleans
-5. Override Get Line Name
-6. Update Get channels from line
-7. Implement to String and from String
-8. Update the Create test configuration VI
-9. Update the to string and from String Unit test
-10. Implement the From String Array to String Array
-11. Update the to String and from String Unit test
+1. Allow multiple instances
+1. Can run on any target
+1. Supports only doubles and Booleans
+1. Update **Line.ctl**
+1. Override Get Line Name
+1. Update Get channels from line
+1. Implement to String and from String
+1. Update the Create test configuration VI
+1. Update the to string and from String Unit test
+1. Implement the From String Array to String Array
+1. Update the to String and from String Unit test
 
 
 ### Part B: Dynamic Module Runtime
