@@ -11,4 +11,4 @@ This is the recommended start point for DCAF in this Hands On we will cover how 
 This hands-on covers the creating of a DCAF Static module, this modules are easier to create and the recommended option if the module developer knows the number of channels that the module will require.
 
 # [Hands On 3: Dynamic Module](Hands-On_3/DCAF_Hands_On_3.md)
-This is an advance hands-on that covers how to create DCAF Dynamic Modules. These modules are more flexible as the final user can decide the number of channels for the module. The flexibility of this modules adds additional complexity to them.
+This is an advanced hands-on that covers how to create DCAF Dynamic Modules. These modules are more flexible as the final user can decide the number of channels for the module. The flexibility of this modules adds additional complexity to them.

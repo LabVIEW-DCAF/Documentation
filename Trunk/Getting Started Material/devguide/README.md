@@ -1,11 +1,11 @@
-# 0	The Distributed Control and Automation Framework (DCAF)  Developer's Guide
+# The Distributed Control and Automation Framework (DCAF)  Developer's Guide
 
-## 0.1	Purpose of this guide
+## Purpose of this guide
 
 This guide is intended to contain all of the information necessary to build an application using DCAF. The guide can help users determine whether DCAF is a good fit for their application, explain the major components of the framework, and walk through the majority of the design decisions that need to be made.
 This guide assumes basic introductory knowledge of both LabVIEW and DCAF. A more comprehensive introduction to DCAF can be found in the Introduction to the Distributed Control and Automation Framework.
 
-## 0.2	How to use this guide
+## How to use this guide
 
 The first three chapters of this guide should be understood by anyone using DCAF to create an application.
 

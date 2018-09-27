@@ -2,6 +2,18 @@
 This hands-on covers the creating of a DCAF Dynamic module, this modules are advance modules that provide additional flexibility as the number of channels of the module are configured by the final user.
 It is recommended that the Hands-On 1 and 2 are completed before doing this one Hands On.
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Hands-On 3: Dynamic Module](#hands-on-3-dynamic-module)
+	- [Exercise 1 Multiplexer Module:](#exercise-1-multiplexer-module)
+			- [Concepts Covered:](#concepts-covered)
+			- [Module Definition:](#module-definition)
+		- [Part A: Dynamic Module Creation and Configuration](#part-a-dynamic-module-creation-and-configuration)
+		- [Part B: Dynamic Module Runtime](#part-b-dynamic-module-runtime)
+		- [Part C: Dynamic Module Editor Node](#part-c-dynamic-module-editor-node)
+		- [Part D:  Create a a DCAF Application that runs the Static Module](#part-d-create-a-a-dcaf-application-that-runs-the-static-module)
+
+<!-- /TOC -->
 
 ## Exercise 1 Multiplexer Module:
 

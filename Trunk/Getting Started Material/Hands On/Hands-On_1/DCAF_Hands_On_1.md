@@ -63,22 +63,7 @@ In the hierarchy shown above you can find some of the components defined in the 
 
 **UI Reference**: This module takes a pre-existing front panel and maps its controls and indicators to DCAF tags to permit direct user interaction with the framework.
 
-##### Custom Modules<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Hands-On 1: Creating a DCAF Application](#hands-on-1-creating-a-dcaf-application)
-			- [Setup](#setup)
-	- [Introduction](#introduction)
-	- [Exercise 1:](#exercise-1)
-				- [Standard Modules](#standard-modules)
-				- [Custom Modules](#custom-modules)
-		- [Part A: Project Creation and UI](#part-a-project-creation-and-ui)
-		- [Part B: Adding Required Classes](#part-b-adding-required-classes)
-		- [Part C: Mapping Tags in the Configuration Editor](#part-c-mapping-tags-in-the-configuration-editor)
-	- [Exercise 2: Adding Standard Modules to the Temperature Control Application (TDMS & CVT)](#exercise-2-adding-standard-modules-to-the-temperature-control-application-tdms-cvt)
-		- [Part A: Add TDMS](#part-a-add-tdms)
-		- [Part 2: Add CVT](#part-2-add-cvt)
-
-<!-- /TOC -->
+##### Custom Modules
 
 **Temperature Controller Logic**: This is a custom DCAF Module designed to provide the control logic for the temperature chamber. If the Simulation Engine is moved to a cRIO Target and the Temperature Chamber Model is replaced with real IO, this module could remain the same.
 

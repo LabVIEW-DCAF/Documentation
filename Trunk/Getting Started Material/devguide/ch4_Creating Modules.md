@@ -1,3 +1,5 @@
+# 4	Creating New DCAF Modules
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [4	Creating New DCAF Modules](#4-creating-new-dcaf-modules)
@@ -24,8 +26,6 @@
 	- [4.3	Module Testing](#43-module-testing)
 
 <!-- /TOC -->
-
-# 4	Creating New DCAF Modules
 
 Before developing a new module, it is best to have a basic design for each module in the application. Modules should be designed to have as much reuse value as possible while balancing performance needs and the cost of implementation. While it is possible to include input, processing, and output functionality within a single module, splitting the I/O and processing into separate modules may result in two more flexible modules that can more easily be reused. Alternatively, it is likely significantly faster (at least in the short-term) to build one fairly rigid module that does everything. Just like other types of design work, module design in DCAF can be viewed as an art where there isn't always a clear right answer.
 

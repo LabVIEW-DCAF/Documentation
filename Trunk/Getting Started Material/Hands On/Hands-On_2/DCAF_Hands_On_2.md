@@ -7,8 +7,6 @@ It is recommended that the Hands-On 1 is completed before doing this one.
 - [Hands-On 2: Static Modules](#hands-on-2-static-modules)
 	- [Introduction:](#introduction)
 	- [Exercise 1:](#exercise-1)
-			- [Concepts Covered:](#concepts-covered)
-			- [Module Definition:](#module-definition)
 		- [Part A: Create a Static PID Module](#part-a-create-a-static-pid-module)
 				- [Create module from template](#create-module-from-template)
 		- [Part B: Update the Static PID Module with scripting](#part-b-update-the-static-pid-module-with-scripting)
@@ -19,8 +17,6 @@ It is recommended that the Hands-On 1 is completed before doing this one.
 				- [Configuration Editor](#configuration-editor)
 				- [Running the Code](#running-the-code)
 	- [Exercise 2:](#exercise-2)
-			- [Concepts Covered:](#concepts-covered)
-			- [Module Definition:](#module-definition)
 		- [Part A: Create the state machine module](#part-a-create-the-state-machine-module)
 		- [Part B: Create a DCAF Application that runs the Static Module](#part-b-create-a-dcaf-application-that-runs-the-static-module)
 

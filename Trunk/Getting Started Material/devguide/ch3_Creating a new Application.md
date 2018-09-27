@@ -1,3 +1,5 @@
+# 3	Creating a New Application – Outline and Checklist
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [3	Creating a New Application – Outline and Checklist](#3-creating-a-new-application-outline-and-checklist)
@@ -20,8 +22,6 @@
 	- [3.7	Building and Debugging an EXE](#37-building-and-debugging-an-exe)
 
 <!-- /TOC -->
-
-# 3	Creating a New Application – Outline and Checklist
 
 1.	Create a Main VI for each execution target (windows, cRIO, etc.) using DCAF's execution templates.
 2.	Download existing DCAF module plugins from the community and design, build, and test new modules if needed (See Ch. 4).
