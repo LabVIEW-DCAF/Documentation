@@ -1,4 +1,17 @@
-# 1 Component Overview
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [1 Component Overview](#1-component-overview)
+	- [1.1 Nomenclature](#11-nomenclature)
+	- [1.2 Architecture](#12-architecture)
+	- [1.3 Appropriate Use-Cases for DCAF](#13-appropriate-use-cases-for-dcaf)
+	- [1.4 Component Overview](#14-component-overview)
+		- [1.4.1 Modules](#141-modules)
+		- [1.4.2 Engine](#142-engine)
+		- [1.4.3 Timing Source](#143-timing-source)
+		- [1.4.1 Configuration Editor](#141-configuration-editor)
+	- [1.5 Packages and Palettes](#15-packages-and-palettes)
+
+# 1 Component Overviews
 
 DCAF is a large LabVIEW framework comprised of many components. This section will first define the common terms used in the framework. Next, it will explain the high-level architecture and use-cases for DCAF. After that will be an overview of each of the major framework components.
 

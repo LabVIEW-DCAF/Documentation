@@ -2,6 +2,29 @@
 This hands-on covers the creating of a DCAF Static module, this modules are easier to create and the recommended option if the module developer knows the number of channels that the module will require.
 It is recommended that the Hands-On 1 is completed before doing this one.
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Hands-On 2: Static Modules](#hands-on-2-static-modules)
+	- [Introduction:](#introduction)
+	- [Exercise 1:](#exercise-1)
+			- [Concepts Covered:](#concepts-covered)
+			- [Module Definition:](#module-definition)
+		- [Part A: Create a Static PID Module](#part-a-create-a-static-pid-module)
+				- [Create module from template](#create-module-from-template)
+		- [Part B: Update the Static PID Module with scripting](#part-b-update-the-static-pid-module-with-scripting)
+				- [Update the clusters](#update-the-clusters)
+				- [Run the scripting](#run-the-scripting)
+		- [Part C: Implement the user process](#part-c-implement-the-user-process)
+		- [Part C: Running and Configuring the Module](#part-c-running-and-configuring-the-module)
+				- [Configuration Editor](#configuration-editor)
+				- [Running the Code](#running-the-code)
+	- [Exercise 2:](#exercise-2)
+			- [Concepts Covered:](#concepts-covered)
+			- [Module Definition:](#module-definition)
+		- [Part A: Create the state machine module](#part-a-create-the-state-machine-module)
+		- [Part B: Create a DCAF Application that runs the Static Module](#part-b-create-a-dcaf-application-that-runs-the-static-module)
+
+<!-- /TOC -->
 
 ## Introduction:
 
@@ -40,8 +63,8 @@ Name               | 	Type   |  Direction
 --                 |  ---    |--
 Temperature        | Double  |  Processing Parameter
 Setpoint           | Double  |  Processing Parameter
-Output Range High  | Double  |  Processing Parameter   
-Output Range Low   | Double  |  Processing Parameter   
+Output Range High  | Double  |  Processing Parameter
+Output Range Low   | Double  |  Processing Parameter
 Output             | Double  |  Processing Result
 
 This channel list will change during the exercise.
@@ -60,8 +83,8 @@ Name               | 	Type   |  Direction
 --                 |  ---    |--
 Temperature        | Double  |  Processing Parameter
 Setpoint           | Double  |  Processing Parameter
-Output Range High  | Double  |  Processing Parameter   
-Output Range Low   | Double  |  Processing Parameter   
+Output Range High  | Double  |  Processing Parameter
+Output Range Low   | Double  |  Processing Parameter
 Output             | Double  |  Processing Result
 
 
@@ -110,11 +133,11 @@ Name               | 	Type   |  Direction
 --                 |  ---    |--
 Temperature        | Double  |  Processing Parameter
 Setpoint           | Double  |  Processing Parameter
-Output Range High  | Double  |  Processing Parameter   
-Output Range Low   | Double  |  Processing Parameter   
-P                  | Double  |  Processing Parameter  
-I                  | Double  |  Processing Parameter   
-D                  | Double  |  Processing Parameter    
+Output Range High  | Double  |  Processing Parameter
+Output Range Low   | Double  |  Processing Parameter
+P                  | Double  |  Processing Parameter
+I                  | Double  |  Processing Parameter
+D                  | Double  |  Processing Parameter
 Output             | Double  |  Processing Result
 
 
@@ -205,7 +228,7 @@ Because you used the script, you can leave most options as the default and press
 |*Figure 1.12*
 
 19.	Finally, we need to map our results to system tags.
-**Note**: If the tag we need already has a writer you have to disconnect it.  
+**Note**: If the tag we need already has a writer you have to disconnect it.
 20.	Select to File >> Save.
 21. From the Temperature Controller Project Window, open Host Module Includes.vi.  This function ensures that all appropriate modules are loaded into memory. You can also load precompiled modules (llb or lvlibp files) from disk, but for our purposes we will simply hardcode the appropriate modules.
 
@@ -256,11 +279,11 @@ The inputs and outputs list for this modules are:
 Name               | 	Type   |  Direction
 --                 |  ---    |--
 A                  | Double  |  Processing Parameter
-B                  | Double  |  Processing Parameter   
-C                  | Double  |  Processing Parameter  
+B                  | Double  |  Processing Parameter
+C                  | Double  |  Processing Parameter
 State 1            | Double  |  Processing Result
 State 2            | Double  |  Processing Result
-State 3            | Double  |  Processing Result   
+State 3            | Double  |  Processing Result
 
 
 

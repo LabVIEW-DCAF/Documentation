@@ -1,4 +1,15 @@
-# 2 Application Design
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [2 Application Design](#2-application-design)
+	- [2.1 Using Existing DCAF Plugins](#21-using-existing-dcaf-plugins)
+	- [2.2 Deciding When to Build New Plugin Modules](#22-deciding-when-to-build-new-plugin-modules)
+	- [2.3 Adding Functionality Outside DCAF](#23-adding-functionality-outside-dcaf)
+		- [2.3.1	Working outside of DCAF with CVT](#231-working-outside-of-dcaf-with-cvt)
+		- [2.3.2 Working outside of DCAF - Shared Memory](#232-working-outside-of-dcaf-shared-memory)
+
+<!-- /TOC -->
+
+# 2 Application Designnn
 
 A DCAF application can be thought to consist of three types of code: pre-existing DCAF plugin modules and engines, newly created DCAF plugins specifically for your application, and custom software written outside of DCAF. When designing a new application, make a plan for which of these categories each piece of application functionality will fall into.
 

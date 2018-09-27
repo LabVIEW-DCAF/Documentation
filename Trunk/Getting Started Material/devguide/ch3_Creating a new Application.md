@@ -1,4 +1,28 @@
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [3	Creating a New Application – Outline and Checklist](#3-creating-a-new-application-outline-and-checklist)
+	- [3.1	Creating a Main VI Using Execution Templates](#31-creating-a-main-vi-using-execution-templates)
+	- [DCAF Basic Execution Template](#dcaf-basic-execution-template)
+		- [3.1.2	DCAF Dynamic Execution Template](#312-dcaf-dynamic-execution-template)
+	- [3.2	Creating New Modules](#32-creating-new-modules)
+	- [3.3	Using the DCAF Configuration Editor](#33-using-the-dcaf-configuration-editor)
+		- [3.3.1	Adding Systems, Targets, and Engines to the configuration](#331-adding-systems-targets-and-engines-to-the-configuration)
+		- [3.3.2	Adding and Configuring Modules](#332-adding-and-configuring-modules)
+		- [3.3.3	Creating Tags](#333-creating-tags)
+		- [3.3.4	Complete and Verify Engine Mappings](#334-complete-and-verify-engine-mappings)
+		- [3.3.5	Specify Engine Execution Configuration](#335-specify-engine-execution-configuration)
+		- [3.3.6	Error handling options/best practices](#336-error-handling-optionsbest-practices)
+	- [3.4	Loading Dependencies and the Module Includes VI](#34-loading-dependencies-and-the-module-includes-vi)
+	- [3.5	Deploying a Configuration File](#35-deploying-a-configuration-file)
+	- [3.6	Running the Main VI and Debugging from the LabVIEW IDE](#36-running-the-main-vi-and-debugging-from-the-labview-ide)
+		- [3.6.1	Deployment Issues](#361-deployment-issues)
+		- [3.6.2	Functionality Debugging](#362-functionality-debugging)
+	- [3.7	Building and Debugging an EXE](#37-building-and-debugging-an-exe)
+
+<!-- /TOC -->
+
 # 3	Creating a New Application – Outline and Checklist
+
 1.	Create a Main VI for each execution target (windows, cRIO, etc.) using DCAF's execution templates.
 2.	Download existing DCAF module plugins from the community and design, build, and test new modules if needed (See Ch. 4).
 3.	Configure system behavior using the DCAF Standard Configuration Editor.

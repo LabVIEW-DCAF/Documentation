@@ -1,3 +1,30 @@
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [4	Creating New DCAF Modules](#4-creating-new-dcaf-modules)
+- [4.1	Static Modules](#41-static-modules)
+	- [4.1.1	Static Module Checklist](#411-static-module-checklist)
+		- [4.1.2	Creating the Module from the Sample Project](#412-creating-the-module-from-the-sample-project)
+		- [4.1.3	Modifying the UI and defining Parameters](#413-modifying-the-ui-and-defining-parameters)
+		- [4.1.4	 Modifying the Initialization](#414-modifying-the-initialization)
+		- [4.1.5	Implementing the Input, Output, and/or Processing Methods](#415-implementing-the-input-output-andor-processing-methods)
+		- [4.1.6	Input, output, and process method execution performance](#416-input-output-and-process-method-execution-performance)
+		- [4.1.7	Setting supported targets and other editor options](#417-setting-supported-targets-and-other-editor-options)
+		- [4.1.8	Changing Channels on a static module and re-running the scripting tools](#418-changing-channels-on-a-static-module-and-re-running-the-scripting-tools)
+- [4.2	Dynamic Modules](#42-dynamic-modules)
+	- [4.2.1	Dynamic Module Checklist](#421-dynamic-module-checklist)
+		- [4.2.2	Creating a Dynamic Module](#422-creating-a-dynamic-module)
+		- [4.2.3	Modifying the UI and defining Parameters](#423-modifying-the-ui-and-defining-parameters)
+			- [4.2.3.1	Defining Parameters](#4231-defining-parameters)
+		- [4.2.4	To and From String](#424-to-and-from-string)
+			- [4.2.4.1	Defining Lines](#4241-defining-lines)
+		- [4.2.5	Customizing Behavior](#425-customizing-behavior)
+		- [4.2.6	Modifying the Initialization](#426-modifying-the-initialization)
+		- [4.2.7	Input, Processing, and Output Methods](#427-input-processing-and-output-methods)
+		- [4.2.8	Table API](#428-table-api)
+	- [4.3	Module Testing](#43-module-testing)
+
+<!-- /TOC -->
+
 # 4	Creating New DCAF Modules
 
 Before developing a new module, it is best to have a basic design for each module in the application. Modules should be designed to have as much reuse value as possible while balancing performance needs and the cost of implementation. While it is possible to include input, processing, and output functionality within a single module, splitting the I/O and processing into separate modules may result in two more flexible modules that can more easily be reused. Alternatively, it is likely significantly faster (at least in the short-term) to build one fairly rigid module that does everything. Just like other types of design work, module design in DCAF can be viewed as an art where there isn't always a clear right answer.
