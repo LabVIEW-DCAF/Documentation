@@ -73,7 +73,7 @@ In the hierarchy shown above you can find some of the components defined in the 
 During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
 1.	In LabVIEW go to **File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
-2.	Name the project **Temperature Controller** and select **\\Desktop\DCAF Hands On\Exercises\Temperature Controller\Runtime\Temperature Controller** as the Project Root. Type **TCRL** as the *|*File Name Prefix**.
+2.	Name the project **Temperature Controller** and select **\\Desktop\DCAF Hands On\Exercises\Temperature Controller\Runtime\Temperature Controller** as the Project Root.
 3.	Verify your project window matches Figure 1.2.
 
 |![Figure 1.2 Project Configuration](Pictures/project_configuration.jpg)
