@@ -37,11 +37,11 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 
 ### Part A: Dynamic Module Creation and Configuration
-1. Create the multiplexer module:
+1. Create a dynamic module using the DCAF Dynamic Channel Module template.
 1. Allow multiple instances
 1. Can run on any target
 1. Supports only doubles and Booleans
-1. Update **Line.ctl**
+1. Locate and modify **Line.ctl** with channels and settings needed for a given line to operate. In this case we will create separate channels for the inputs ‘A’, ‘B’ and ‘Select’ and the output ‘Output’.  
 1. Override Get Line Name
 1. Update Get channels from line
 1. Implement to String and from String
