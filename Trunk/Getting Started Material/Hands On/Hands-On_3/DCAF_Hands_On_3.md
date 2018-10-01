@@ -50,7 +50,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 |![Finding Line.jpg](Pictures/find_line.jpg)|
 |:--:|
-|*Figure 1.2*|
+|*Figure 1.2*
 
 
 |![Modified Line.jpg](Pictures/Modified Line.jpg)|
