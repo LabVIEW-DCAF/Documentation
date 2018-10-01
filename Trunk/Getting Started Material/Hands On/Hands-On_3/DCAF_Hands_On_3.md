@@ -38,12 +38,16 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 ### Part A: Dynamic Module Creation and Configuration
 1. Create a dynamic module using the DCAF Dynamic Channel Module template.
+
+
 |![DCAF Dynamic Module Template.jpg](Pictures/dynamic_template.jpg)|
 |:--:|
 |*Figure 1.1*|
 
 1. Confugre your module to allow multiple instances, allow running on any target and supporting only doubles and booleans as datatypes.
 1. Locate and modify **Line.ctl** with channels and settings needed for a given line to operate. In this case we will create separate channels for the inputs ‘A’, ‘B’ and ‘Select’ and the output ‘Output’. 
+
+
 |![Finding Line.jpg](Pictures/find_line.jpg)|
 |:--:|
 |*Figure 1.2*|
