@@ -48,9 +48,9 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 3. Locate and modify **Line.ctl** with channels and settings needed for a given line to operate. In this case we will create separate channels for the inputs ‘A’, ‘B’ and ‘Select’ and the output ‘Output’. 
 
 
-|![Finding Line.jpg](Pictures/find_line.jpg)|
+|![Modified Line.jpg](Pictures/Modified Line.jpg)|
 |:--:|
-|*Figure 1.2*|
+|*Figure 1.3*|
  
 4. Modify **Get Line Name.vi** so our line can provide an unique name for each line. Name can be taken from any of the channels in the line or included as one of the settings in the line itself. In the example below, we extract the name of the channel A. Channels will have a name with format LineName_ChannelName. We use the Match pattern to extract the contents before the underscore and obtain the line name we are looking for. 
 
