@@ -50,12 +50,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 |![Finding Line.jpg](Pictures/find_line.jpg)|
 |:--:|
-|*Figure 1.2*
-
-
-|![Modified Line.jpg](Pictures/Modified Line.jpg)|
-|:--:|
-|*Figure 1.3*|
+|*Figure 1.2*|
  
 4. Modify **Get Line Name.vi** so our line can provide an unique name for each line. Name can be taken from any of the channels in the line or included as one of the settings in the line itself. In the example below, we extract the name of the channel A. Channels will have a name with format LineName_ChannelName. We use the Match pattern to extract the contents before the underscore and obtain the line name we are looking for. 
 
