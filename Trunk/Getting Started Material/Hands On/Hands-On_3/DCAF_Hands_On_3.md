@@ -44,17 +44,51 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 |:--:|
 |*Figure 1.1*|
 
-1. Confugre your module to allow multiple instances, allow running on any target and supporting only doubles and booleans as datatypes.
-1. Locate and modify **Line.ctl** with channels and settings needed for a given line to operate. In this case we will create separate channels for the inputs ‘A’, ‘B’ and ‘Select’ and the output ‘Output’. 
+2. Confugre your module to allow multiple instances, allow running on any target and supporting only doubles and booleans as datatypes.
+3. Locate and modify **Line.ctl** with channels and settings needed for a given line to operate. In this case we will create separate channels for the inputs ‘A’, ‘B’ and ‘Select’ and the output ‘Output’. 
 
 
 |![Finding Line.jpg](Pictures/find_line.jpg)|
+|![Modified Line.jpg](Pictures/Modified Line.jpg)|
 |:--:|
 |*Figure 1.2*|
  
-1. Override Get Line Name
-1. Update Get channels from line
-1. Implement to String and from String
+4. Modify Get Line Name.vi so our line can provide an unique name for each line. Name can be taken from any of the channels in the line or included as one of the settings in the line itself. In the example below, we extract the name of the channel A. Channels will have a name with format LineName_ChannelName. We use the Match pattern to extract the contents before the underscore and obtain the line name we are looking for. 
+
+
+|![Modified Get Line Name.jpg](Pictures/Modified Get Line Name.jpg)|
+|:--:|
+|*Figure 1.3*|
+
+5. Modify Get Channels from Line.vi so it returns an array with all the channels present in the line.
+
+
+|![Modified Get Channels from Line.jpg](Pictures/Modified Get Channels from Line.jpg)|
+|:--:|
+|*Figure 1.4*|
+
+6. Modify to string.vi (to string 1.0.vi) so our class can store the information configured by the user in a string. In the example below, we store in a single section all the lines configurations. In another section we store our scale since it applies to all our lines. 
+
+
+|![Finding to and from string.jpg](Pictures/Find to and from string.jpg)|
+|![Modified to string.jpg](Pictures/Modified to string.jpg)|
+|:--:|
+|*Figure 1.5*|
+
+7. Modify from string.vi (from string 1.0.vi) so our class can retrieve the information configured by the user from a string.
+
+
+|![Modified from string.jpg](Pictures/Modified from string.jpg)|
+|:--:|
+|*Figure 1.6*|
+
+8. Modify the get channels.vi so we can read all the channels configured for all our lines in a single array. In here we can reuse the Get Channels from Line.vi modified previously.
+
+
+|![Modified Get Channels from Line.jpg](Pictures/Modified Get Channels from Line.jpg)|
+|:--:|
+|*Figure 1.7*|
+
 1. Update the Create test configuration VI
 1. Update the to string and from String Unit test
 1. Implement the From String Array to String Array
