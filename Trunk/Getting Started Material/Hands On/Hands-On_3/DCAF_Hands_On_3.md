@@ -93,7 +93,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 8. Modify the **get channels.vi** so we can read all the channels configured for all our lines in a single array. In here we can reuse the **Get Channels from Line.vi** modified previously.
 
 
-|![Modified Get Channels from Line.jpg](Pictures/ModifiedGetChannelsfrom Line.jpg)|
+|![Modified Get Channels from Line.jpg](Pictures/ModifiedGetChannelsfromLine.jpg)|
 |:--:|
 |*Figure 1.9*|
 
