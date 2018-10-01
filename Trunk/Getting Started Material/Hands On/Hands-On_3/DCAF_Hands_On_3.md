@@ -74,50 +74,50 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 6. Modify **to string.vi (to string 1.0.vi)** so our class can store the information configured by the user in a string. In the example below, we store in a single section all the lines configurations. In another section we store our scale since it applies to all our lines. 
 
 
-|![Finding to and from string.jpg](Pictures/Find to and from string.jpg)|
+|![Finding to and from string.jpg](Pictures/Findtoandfromstring.jpg)|
 |:--:|
 |*Figure 1.6*|
 
 
-|![Modified to string.jpg](Pictures/Modified to string.jpg)|
+|![Modified to string.jpg](Pictures/Modifiedtostring.jpg)|
 |:--:|
 |*Figure 1.7*|
 
 7. Modify **from string.vi (from string 1.0.vi)** so our class can retrieve the information configured by the user from a string.
 
 
-|![Modified from string.jpg](Pictures/Modified from string.jpg)|
+|![Modified from string.jpg](Pictures/Modifiedfromstring.jpg)|
 |:--:|
 |*Figure 1.8*|
 
 8. Modify the **get channels.vi** so we can read all the channels configured for all our lines in a single array. In here we can reuse the **Get Channels from Line.vi** modified previously.
 
 
-|![Modified Get Channels from Line.jpg](Pictures/Modified Get Channels from Line.jpg)|
+|![Modified Get Channels from Line.jpg](Pictures/ModifiedGetChannelsfrom Line.jpg)|
 |:--:|
 |*Figure 1.9*|
 
 9. Modify the private data of our configuration class so it includes general settings that apply for all our lines or other relevant data for our module to operate. In this case we include a double numeric element to store our Scale.
 
 
-|![Modified Private Data Config.jpg](Pictures/Modified Private Data Config.jpg)|
+|![Modified Private Data Config.jpg](Pictures/ModifiedPrivateDataConfig.jpg)|
 |:--:|
 |*Figure 1.10*|
 
 10. Create data accessors for the extra elements we added in the previous step. To make this right click on your configuration class and select New >> VI for Data Member Access…
 
 
-|![Creating Accessors for Scale.jpg](Pictures/Creating Accessors for Scale.jpg)|
+|![Creating Accessors for Scale.jpg](Pictures/CreatingAccessorsforScale.jpg)|
 |:--:|
 |*Figure 1.11*|
 
 
-|![Scale Accessor Writer.jpg](Pictures/Scale Accessor Writer.jpg)|
+|![Scale Accessor Writer.jpg](Pictures/ScaleAccessorWriter.jpg)|
 |:--:|
 |*Figure 1.12*|
 
 
-|![Scale Accessor Reader.jpg](Pictures/Scale Accessor Reader.jpg)|
+|![Scale Accessor Reader.jpg](Pictures/ScaleAccessorReader.jpg)|
 |:--:|
 |*Figure 1.13*|
 
