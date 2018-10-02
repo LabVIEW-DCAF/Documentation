@@ -57,7 +57,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 |:--:|
 |*Figure 1.3*|
  
-4. Modify **Get Line Name.vi** so our line can provide an unique name for each line. Name can be taken from any of the channels in the line or included as one of the settings in the line itself. In the example below, we extract the name of the channel A. Channels will have a name with format LineName_ChannelName. We use the Match pattern to extract the contents before the underscore and obtain the line name we are looking for. 
+4. Modify **Get Line Name.vi** so our line can provide an unique name for each line. Name can be taken from any of the channels in the line or included as one of the settings in the line itself. In the example below, we extract the name of the channel A. Channels will have a name with format *LineName_ChannelName*. We use the **Match Pattern VI** to extract the contents before the underscore and obtain the line name we are looking for. 
 
 
 |![Modified Get Line Name.jpg](Pictures/ModifiedGetLineName.jpg)|
@@ -93,7 +93,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 8. Modify the **get channels.vi** so we can read all the channels configured for all our lines in a single array. In here we can reuse the **Get Channels from Line.vi** modified previously.
 
 
-|![Modified Get Channels from Line.jpg](Pictures/ModifiedGetChannelsfromLine.jpg)|
+|![Modified Get Channels.jpg](Pictures/ModifiedGetChannels.jpg)|
 |:--:|
 |*Figure 1.9*|
 
@@ -121,10 +121,34 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 |:--:|
 |*Figure 1.13*|
 
-1. Update the Create test configuration VI
-1. Update the to string and from String Unit test
-1. Implement the From String Array to String Array
-1. Update the From String Array to String Array Unit test
+#### Testing the Configuration Class
+
+1. Modify the **Create Test Configuration.vi** in the tests library that was automatically scripted as a part of the project template. In this VI we want to create a known configuration class with different settings for our lines. This test configuration will be used to test functionality of other VIs in the configuration, runtime and editor node classes.
+
+
+|![Finding Create Test Configuration.jpg](Pictures/FindingCreateTestConfiguration.jpg)|
+|:--:|
+|*Figure 1.14*|
+
+
+|![Modified Create Test Configuration.jpg](Pictures/ModifiedCreateTestConfiguration.jpg)|
+|:--:|
+|*Figure 1.15*|
+
+2. We are now ready to test that our configuration class can store and retrieve its configuration to and from a string. There is a VI already made for this purpose. Open and run the **serialization tests.vi** in the *Unit Tests* virtual folder. The VI should run with no error and the LED indicators should turn ON. Otherwise, use this VI to debug some of the VIs that were previously modified.
+
+
+|![serialization tests FP.jpg](Pictures/serializationtestsFP.jpg)|
+|:--:|
+|*Figure 1.16*|
+
+|![serialization tests BD.jpg](Pictures/serializationtestsBD.jpg)|
+|:--:|
+|*Figure 1.17*|
+
+1. Update the to string and from String Unit test?
+1. Implement the From String Array to String Array?
+1. Update the From String Array to String Array Unit test?
 
 
 ### Part B: Dynamic Module Runtime
