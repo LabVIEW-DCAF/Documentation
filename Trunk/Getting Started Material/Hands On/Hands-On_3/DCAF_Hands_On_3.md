@@ -153,7 +153,8 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 ### Part B: Dynamic Module Runtime
 1. Modify the **init.vi**. 
-  a. Create a new typedef called **Line Mappings.ctl**. Use this typedef to store in a cluster the mappings (indexes) for all our channels in the bus for a given line. In this case we don’t need to store the datatype for each of the elements since it will always be the same.
+  
+  1.1 Create a new typedef called **Line Mappings.ctl**. Use this typedef to store in a cluster the mappings (indexes) for all our channels in the bus for a given line. In this case we don’t need to store the datatype for each of the elements since it will always be the same.
 
 	
 |![Line Mappings Location.jpg](Pictures/LineMappingsLocation.jpg)|
@@ -165,21 +166,21 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 |:--:|
 |*Figure 2.2*|	
 
-  b. Modify the private data of the runtime class so it includes the array of mappings. We will use the object to pass our mappings from the **init.vi** to the **process.vi**. Also include a numeric double to store the Scale value.	
+  1.2 Modify the private data of the runtime class so it includes the array of mappings. We will use the object to pass our mappings from the **init.vi** to the **process.vi**. Also include a numeric double to store the Scale value.	
 
 
 |![Modified Runtime Class.jpg](Pictures/ModifiedRuntimeClass.jpg)|
 |:--:|
 |*Figure 2.3*|	
 
-  c. Create a new VI called **Create Mappings.vi**. Use this VI to search the indexes for all the channels in our lines. Use this information to generate an array with mappings to our channels.
+  1.3 Create a new VI called **Create Mappings.vi**. Use this VI to search the indexes for all the channels in our lines. Use this information to generate an array with mappings to our channels.
 	
 
 |![Create Mappings.jpg](Pictures/CreateMappings.jpg)|
 |:--:|
 |*Figure 2.4*|
 
-  d. Include the created subVI as a part of the **init.vi** and modify the runtime class with this information. Also extract the Scale value and wire it to the Runtime class.
+  1.4 Include the created subVI as a part of the **init.vi** and modify the runtime class with this information. Also extract the Scale value and wire it to the Runtime class.
 
 	
 |![Modified init.jpg](Pictures/Modifiedinit.jpg)|
