@@ -152,10 +152,66 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 
 ### Part B: Dynamic Module Runtime
-1. Initialize the runtime class with the scaling value
-2. Write the runtime to multiplex channels
-3. Unit test the runtime.
+1. Modify the **init.vi**. 
+    a. Create a new typedef called **Line Mappings.ctl**. Use this typedef to store in a cluster the mappings (indexes) for all our channels in the bus for a given line. In this case we don’t need to store the datatype for each of the elements since it will always be the same.
 
+	
+|![Line Mappings Location.jpg](Pictures/LineMappingsLocation.jpg)|
+|:--:|
+|*Figure 2.1*|	
+
+
+|![Line Mappings.jpg](Pictures/LineMappings.jpg)|
+|:--:|
+|*Figure 2.2*|	
+
+    b. Modify the private data of the runtime class so it includes the array of mappings. We will use the object to pass our mappings from the **init.vi** to the **process.vi**. Also include a numeric double to store the Scale value.	
+
+
+|![Modified Runtime Class.jpg](Pictures/ModifiedRuntimeClass.jpg)|
+|:--:|
+|*Figure 2.3*|	
+
+    c. Create a new VI called **Create Mappings.vi**. Use this VI to search the indexes for all the channels in our lines. Use this information to generate an array with mappings to our channels.
+	
+
+|![Create Mappings.jpg](Pictures/CreateMappings.jpg)|
+|:--:|
+|*Figure 2.4*|
+
+    d. Include the created subVI as a part of the **init.vi** and modify the runtime class with this information. Also extract the Scale value and wire it to the Runtime class.
+
+	
+|![Modified init.jpg](Pictures/Modifiedinit.jpg)|
+|:--:|
+|*Figure 2.5*|
+
+2. Modify the **process.vi** so it executes our desired functionality. As we already have the indexes for our tags, we simply use the Table API to access our processing and results parameters.
+
+
+|![Modified process.jpg](Pictures/Modifiedprocess.jpg)|
+|:--:|
+|*Figure 2.6*|
+
+#### Testing the Runtime Class
+1. Modify the **Runtime Test.vi** in the tests library. This VI is found in the *Manual* folder. Modify the code around the **Process.vi** to write our processing parameters and read the processing result. The names used must match the ones we set in the **Create Test Configuration.vi**. 
+
+
+|![Modified Runtime Test.jpg](Pictures/ModifiedRuntimeTest.jpg)|
+|:--:|
+|*Figure 2.7*|
+
+2. Once modified, run the **Runtime Test.vi** with different inputs and verify the outputs behave as expected. For the example below scale was set to 3.4.
+
+
+|![Runtime Test FP2.jpg](Pictures/RuntimeTestFP1.jpg)|
+|:--:|
+|*Figure 2.8*|
+
+
+|![Runtime Test FP2.jpg](Pictures/RuntimeTestFP2.jpg)|
+|:--:|
+|*Figure 2.9*|
 
 ### Part C: Dynamic Module Editor Node
 1. Define Columns
