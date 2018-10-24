@@ -24,7 +24,9 @@ Follow the instructions below to install DCAF and its dependencies on top of Lab
 
 ![Yes License.png](Pictures/YesLicense.png)
 
-8. VIPM will now connect to LabVIEW to get these packages installed.
-9. At some point you may be asked to install Graphviz. If this is the case, follow the necessary steps to get it installed. 
-10. At some point you may be asked to install PuTTY. If this is the case, follow the necessary steps to get it installed. 
-11. Once all the components are correctly installed, VIPM will take some time to mass compile all the VIs to the corresponding version of LabVIEW. This process may take several minutes. 
+8. VIPM will now connect to LabVIEW to get these packages installed. At some point you may be asked to install Graphviz and/or PuTTy. If this is the case, follow the necessary steps to get them installed. 
+10. Once all the components are correctly installed, VIPM will take some time to mass compile all the VIs to the corresponding version of LabVIEW. This process may take several minutes. 
+11. Click Finish when VIPM is done with installing DCAF Core and its dependencies.
+12. Repeat steps 3 through 11 but this time to install the DCAF TDMS Logging Module
+
+![DCAF TDMS.png](Pictures/DCAF_TDMS.png)
