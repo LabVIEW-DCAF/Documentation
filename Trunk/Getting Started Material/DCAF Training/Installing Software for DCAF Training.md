@@ -1,3 +1,7 @@
+**Installing Software for DCAF Training**
+
+Follow the instructions below to install DCAF and its dependencies on top of LabVIEW to prepare a computer for a DCAF Training.
+
 1. Install LabVIEW 2014 or greater. 
 2. Make sure the JKI VI Package Manager (VIPM) 2014 or later is installed. Version 2013 and earlier are incompatible with the DCAF VI packages. To verify the VIPM version go to Help > About VIPM.
 
@@ -24,4 +28,3 @@
 9. At some point you may be asked to install Graphviz. If this is the case, follow the necessary steps to get it installed. 
 10. At some point you may be asked to install PuTTY. If this is the case, follow the necessary steps to get it installed. 
 11. Once all the components are correctly installed, VIPM will take some time to mass compile all the VIs to the corresponding version of LabVIEW. This process may take several minutes. 
-
