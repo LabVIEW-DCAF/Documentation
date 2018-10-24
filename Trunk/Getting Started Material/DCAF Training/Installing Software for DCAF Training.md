@@ -2,12 +2,12 @@
 
 Follow the instructions below to install DCAF and its dependencies on top of LabVIEW to prepare a computer for a DCAF Training.
 
-1. Install LabVIEW 2014 or greater. 
+1. Install **LabVIEW 2014 or greater**. 
 2. Make sure the JKI VI Package Manager (VIPM) 2014 or later is installed. Version 2013 and earlier are incompatible with the DCAF VI packages. To verify the VIPM version go to Help > About VIPM.
 
 ![VIPM version.png](Pictures/VIPMversion.png)
 
-3. Using the search bar on the top right, search for DCAF. The list of software will update with several DCAF components. Double-click to install the DCAF Core component. 
+3. Using the search bar on the top right, search for DCAF. The list of software will update with several DCAF components. Double-click to install the **DCAF Core** component. 
 
 ![DCAF Core.png](Pictures/DCAFCore.png)
 
@@ -27,6 +27,6 @@ Follow the instructions below to install DCAF and its dependencies on top of Lab
 8. VIPM will now connect to LabVIEW to get these packages installed. At some point you may be asked to install Graphviz and/or PuTTy. If this is the case, follow the necessary steps to get them installed. 
 10. Once all the components are correctly installed, VIPM will take some time to mass compile all the VIs to the corresponding version of LabVIEW. This process may take several minutes. 
 11. Click Finish when VIPM is done with installing DCAF Core and its dependencies.
-12. Repeat steps 3 through 11 but this time to install the DCAF TDMS Logging Module
+12. Repeat steps 3 through 11 but this time to install the **DCAF TDMS Logging Module**.
 
 ![DCAF TDMS.png](Pictures/DCAF_TDMS.png)
