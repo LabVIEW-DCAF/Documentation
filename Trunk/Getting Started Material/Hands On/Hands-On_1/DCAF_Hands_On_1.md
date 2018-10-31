@@ -73,14 +73,14 @@ In the hierarchy shown above you can find some of the components defined in the 
 During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
 1.	In LabVIEW go to **File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
-2.	Name the project **Temperature Controller** and select **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime** as the Project Root.
+2.	Name the project **Temperature Controller** and select **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime\Project** as the Project Root.
 3.	Verify your project window matches Figure 1.2.
 
 |![Figure 1.2 Project Configuration](Pictures/project_configuration.jpg)
 |:--:|
 |*Figure 1.2*
 
-4.	Add to the project a Configuration File with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a Configuration File). Under **My Computer** add **SimulatedSystem.pcfg** located at **Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller**.
+4.	Add to the project a Configuration File with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a Configuration File). Under **My Computer** add **SimulatedSystem.pcfg** located at **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller**.
 5.	To speed up the exercise, a UI has already been created. Under **My Computer**, add **TCRL User Interface.vi** to the project located at **\\Temperature Controller\Runtime.**
 6.	Look at the names of the Labels in the Block Diagram. This is important to correctly map the tags to the UI. Controls and Indicators will be directly updated through the DCAF UI Engine, so there is no need to add more code in this VI. Save and Close **TCRL User Interface.vi**.
 
