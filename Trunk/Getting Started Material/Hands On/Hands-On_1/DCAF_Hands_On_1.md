@@ -94,7 +94,7 @@ During this first part of the exercise you will be create a DCAF project from sc
 |:--:|
 |*Figure 1.4*
 
-8.	Open **TCRL Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Temperature Controller**.  Select this as default value for this control. Save and Close this VI.
+8.	Open **TCRL Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Temperature Controller**.  Select this as default value for this control by going to **Edit >> Make Current Values Default**. Save and Close this VI.
 
 ### Part B: Adding Required Classes
 
@@ -106,7 +106,7 @@ DCAF has been developed using LabVIEW Object Oriented Programming. Therefore, th
 4.	In the DCAF Configuration Editor go to File>>Open and search for the SimulatedSystem.pcfg Configuration File located at **\\Temperature Controller**.
 5.	Take a couple of minutes to go through each component in the Simulation and UI Engines.
 6.	Open the Temperature Controller project located at **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime** if not already opened.
-7.	Open **TCRL Host Module Includes.vi** and verify the Block Diagram is empty. This VI will load the required classes when T**CRL Host Main.vi** executes. A scripting tool will add the corresponding classes to TCRL Host Module Includes.vi. In the System Configuration hierarchy in the DCAF Configuration Editor select PC. In the Includes file path box browse for  **TCRL Host Module Includes.vi** located at **\\Temperature Controller\Runtime**. Press the Generate button. Repeat this step each time you add or remove any Module from the Hierarchy Tree.
+7.	Open **TCRL Host Module Includes.vi** and verify the Block Diagram is empty. This VI will load the required classes when T**CRL Host Main.vi** executes. A scripting tool will add the corresponding classes to TCRL Host Module Includes.vi. In the System Configuration hierarchy in the DCAF Configuration Editor select PC. In the Includes file path box browse for  **TCRL Host Module Includes.vi** located at **\\Temperature Controller\Runtime\Project**. Press the Generate button. Repeat this step each time you add or remove any Module from the Hierarchy Tree.
 
 |![Figure 1.5 Script Includes Dialog](Pictures/script_includes_dialog.jpg)
 |:--:|
@@ -155,7 +155,6 @@ Before we start the implementation, take a look to the following diagram to unde
 6.	Stop the **TCRL Host Main.vi** and return to the Configuration Editor. We will review the connections in each component on both engines to understand the tag dataflow and connect the tags that are missing to make it run.
 
 7.	We will start with the **Simulation Engine**. First select the Tags node and take a look at the tags.
-fig_1_10_tags_configuration.jpg
 
 |![Figure 1.10 Tags Configuration](Pictures/tags_configuration.jpg)
 |:--:|
@@ -244,14 +243,14 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 |:--:|
 |*Figure 2.1*
 
-5.	Go to the **Datalogger Configuration** tab. Press the first browse button to select a File path. Browse to **\\Temperature Controller\Runtime** and create a folder named **Data**. Type Temperature Measurements as the File name.
-6.	Press the second browse button to select a Historical Directory. Browse to **\\Temperature Controller\Runtime** and create a folder named **Historical**. Type **Temperature Measurements** as the File name. Verify your file paths with Figure 2.3.
+5.	Go to the **Datalogger Configuration** tab. Press the browse button to select a File path. Browse to **\\Temperature Controller\Runtime** and create a folder named **Data**. Type Temperature Measurements as the File name.
+6.	Go to the Log Rotation Tab. In here we can configure a maximum size for each file before a new one is created. Press the browse button to select a Historical Directory. Browse to **\\Temperature Controller\Runtime** and create a folder named **Historical**. In this folder our files will be saved once they get to the maximum size we configured. 
 
 |![Figure 2.3 Datalogger Configuration](Pictures/datalogger_configuration.jpg)
 |:--:|
 |*Figure 2.3*
 
-7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in **Exercise 1>>Part 2>>Step 7** to update the classes in **TCRL Host Module Includes.vi**. Verify the class has been successfully added to **TCRL Host Module Includes.vi**.
+7.	Since we added a new module, loaded classes should be updated. Use the scripting tool explained in **Exercise 1>>Part 2>>Step 7** to update the classes in **TCRL Host Module Includes.vi**. The option to re-generate the Includes VI is in the PC Configuration. Verify the class has been successfully added to **TCRL Host Module Includes.vi**.
 
 |![Figure 2.4 Host Includes Block Diagram](Pictures/ex2_host_includes_block_diagram.jpg)
 |:--:|
@@ -259,7 +258,7 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 
 8. **Run TCRL Host Main.vi**. Do some changes to the setpoint and verify it still working and stop the VI.
 9.	Go to the Historical folder you created located at \\Temperature Controller\Runtime\Historical and open the TDMS file just created. Verify the tags you added in the TDMS datalogger modules appear in the file and generated data.</br>
-**Note**: if the file is not in **Historical** folder, the configuration migth be worng or the file is open and it is still on the **Data** folder.
+**Note**: if the file is not in **Historical** folder, the configuration migth be wrong or the file is open and it is still on the **Data** folder.
 
 |![Figure 2.5 TDMS File](Pictures/tdms_file.jpg)
 |:--:|
