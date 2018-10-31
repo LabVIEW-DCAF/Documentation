@@ -73,14 +73,14 @@ In the hierarchy shown above you can find some of the components defined in the 
 During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
 1.	In LabVIEW go to **File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
-2.	Name the project **Temperature Controller** and select **\\Desktop\DCAF Hands On\Exercises\Temperature Controller\Runtime\Temperature Controller** as the Project Root.
+2.	Name the project **Temperature Controller** and select **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime** as the Project Root.
 3.	Verify your project window matches Figure 1.2.
 
 |![Figure 1.2 Project Configuration](Pictures/project_configuration.jpg)
 |:--:|
 |*Figure 1.2*
 
-4.	Add to the project a Configuration File with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a Configuration File). Under **My Computer** add **SimulatedSystem.pcfg** located at **\\Desktop\DCAF Hands On\Exercises\ Temperature Controller**.
+4.	Add to the project a Configuration File with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a Configuration File). Under **My Computer** add **SimulatedSystem.pcfg** located at **Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller**.
 5.	To speed up the exercise, a UI has already been created. Under **My Computer**, add **TCRL User Interface.vi** to the project located at **\\Temperature Controller\Runtime.**
 6.	Look at the names of the Labels in the Block Diagram. This is important to correctly map the tags to the UI. Controls and Indicators will be directly updated through the DCAF UI Engine, so there is no need to add more code in this VI. Save and Close **TCRL User Interface.vi**.
 
@@ -102,10 +102,10 @@ DCAF has been developed using LabVIEW Object Oriented Programming. Therefore, th
 
 1.	Open the Standard Configuration Editor by navigating in LabVIEW to **Tools>>DCAF>>Launch Standard Configuration Editor…**
 2.	Navigate within the editor to **Tools>>Edit Plugin Search Paths**.
-3.	Add a search path to the plugins for this example located at **\\Temperature Controller** if it’s not already there.
+3.	Add a search path to the plugins for this example located at **\\Temperature Controller\Modules** if it’s not already there.
 4.	In the DCAF Configuration Editor go to File>>Open and search for the SimulatedSystem.pcfg Configuration File located at **\\Temperature Controller**.
 5.	Take a couple of minutes to go through each component in the Simulation and UI Engines.
-6.	Open the Temperature Controller project located at **\\Temperature Controller\Runtime** if not already opened.
+6.	Open the Temperature Controller project located at **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime** if not already opened.
 7.	Open **TCRL Host Module Includes.vi** and verify the Block Diagram is empty. This VI will load the required classes when T**CRL Host Main.vi** executes. A scripting tool will add the corresponding classes to TCRL Host Module Includes.vi. In the System Configuration hierarchy in the DCAF Configuration Editor select PC. In the Includes file path box browse for  **TCRL Host Module Includes.vi** located at **\\Temperature Controller\Runtime**. Press the Generate button. Repeat this step each time you add or remove any Module from the Hierarchy Tree.
 
 |![Figure 1.5 Script Includes Dialog](Pictures/script_includes_dialog.jpg)
@@ -163,7 +163,7 @@ fig_1_10_tags_configuration.jpg
 
 8.	These tags are used for connections in the rest of Simulation Engine modules: Temperature Controller Logic, Temperature Chamber Model and UDP. Notice all of them are Doubles except for **Fan on?**.
 
-9.	Go to **Mappings** under the Simulation Standard Engine and select the M**anual Mapping** tab. This section will allow you to have a better look of the tag flow in this application. In the left pane you will see all the channels that haven’t been mapped. Just look, don’t make changes.
+9.	Go to **Mappings** under the Simulation Standard Engine and select the **Manual Mapping** tab. This section will allow you to have a better look of the tag flow in this application. In the left pane you will see all the channels that haven’t been mapped. Just look, don’t make changes.
 
 |![Figure 1.11 Mappings Configuration](Pictures/mappings.jpg)
 |:--:|
@@ -185,7 +185,7 @@ fig_1_10_tags_configuration.jpg
 
 13.	Before going to the next module notice the **Direction** column. **Processing parameters** are module inputs while **processing results** are module outputs. Some of the processing parameters in this module come from the UI Engine and others come from the Temperature Controller Logic Module. The two processing results in this module will go through the Tag Bus as inputs in the **Temperature Chamber Model** module.
 
-14.	Go to the T**emperature Chamber Model** module. Notice all the channels are disconnected from any tag. The only disconnected channel should be **Ambient Temperature**. Create the following connections. **Fan PWM** and **Lamp PWM** channels are processing parameters in this module that should come from the **Temperature Controller Logic Module**. **Thermocouple Reading** is a processing result that should be used as the feedback signal in the **Temperature Controller Logic Module** and will also be sent to the UI Engine to be displayed in the graph. Following the same instructions as in step 11, map **Fan PWM**, **Lamp PWM**, and T**hermocouple Reading** channels to **Fan**, **Lamp**, and **Thermocouple** tags. Verify your table looks like the following image:
+14.	Go to the **Temperature Chamber Model** module. Notice all the channels are disconnected from any tag. The only disconnected channel should be **Ambient Temperature**. Create the following connections. **Fan PWM** and **Lamp PWM** channels are processing parameters in this module that should come from the **Temperature Controller Logic Module**. **Thermocouple Reading** is a processing result that should be used as the feedback signal in the **Temperature Controller Logic Module** and will also be sent to the UI Engine to be displayed in the graph. Following the same instructions as in step 11, map **Fan PWM**, **Lamp PWM**, and T**hermocouple Reading** channels to **Fan**, **Lamp**, and **Thermocouple** tags. Verify your table looks like the following image:
 
 |![Figure 1.14 Temperature Model Configuration](Pictures/temperature_model_configuration_dialog.jpg)
 |:--:|
