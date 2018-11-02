@@ -252,7 +252,7 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 Create a DCAF application to test the dynamic module we just created. In this case we will create 4:1 multiplexer. The UI for this application is shown in the image below.
 
-|![TesterUI.jpg](Pictures/TesterUI.jpg)|
+|![TesterUI.jpg](Pictures/TesterUI.JPG)|
 |:--:|
 |*Figure 4.1*|
 
