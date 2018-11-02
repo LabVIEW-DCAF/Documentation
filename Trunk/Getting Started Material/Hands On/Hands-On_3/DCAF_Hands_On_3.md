@@ -215,13 +215,21 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 |*Figure 2.9*|
 
 ### Part C: Dynamic Module Editor Node
-1. Define Columns
-2. Callbacks
-3. To Table
-4. Line Configuration Dialog.
+1. Open the **Main Editor UI.vi**. Add an extra tab for the user to configure general parameters for our module. In this case add a numeric value for the user to be able to modify the *Scale*. 
+
+2. Add an event case to manage UI changes in our parameters and store the new values into our configuration class. 
+
+3. Create another method to read the stored value for the *Scale* from the Configuration Class.
+
+4. Modify **Define Columns.vi** so we can configure the type of elements that is expected in each column of our table. 
+
+5. Modify Callback VIs.
+
+6. Modify **ToTable.vi**
+
+7. Modify **generate default line.vi**.
+
+8. Modify **Line Configuration Dialog.vi**
 
 ### Part D:  Create a a DCAF Application that runs the Static Module
-Create a new project with the Basic Execution Template
-2. Configure the UI
-3. Create a DCAF configuration that maps the state machine to the UI using the UI modules
-4. Run the application and test.
+
