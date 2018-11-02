@@ -54,8 +54,6 @@ Name               | 	Type   |  Direction
 --                 |  ---    |--
 Temperature        | Double  |  Processing Parameter
 Setpoint           | Double  |  Processing Parameter
-Output Range High  | Double  |  Processing Parameter
-Output Range Low   | Double  |  Processing Parameter
 Output             | Double  |  Processing Result
 
 This channel list will change during the exercise.
@@ -97,9 +95,9 @@ Your configuration should look like the one shown in Figure 1.1.
 9. We want to configure the editor to search for modules in the path where our PID module was saved. From the DCAF Editor, navigate to **Tools >> Edit Plugin Search Paths...**. Add the next path as a search path: **\\Temperature Controller\Modules**.
 **Note**: Add the whole modules directory as the simulation module is in that folder.
 
-10. Add a PC target and a standard engine under the system to finally add your Custom Temperature Controller Module under the engine.It should look as in the image below. As you can see, the channels of our module are ready to be connected to tags in the engine.
+10. Add a PC target and a standard engine under the system to finally add your Custom Temperature Controller Module under the engine. It should look as in the image below. As you can see, the channels of our module are ready to be connected to tags in the engine.
 
-|![Module in Editor 1.jpg](Pictures/module_editor1.jpg)|
+|![Module in Editor 1.jpg](Pictures/module_editor1.JPG)|
 |:--:|
 |*Figure 1.3*|
 
@@ -109,19 +107,19 @@ Your configuration should look like the one shown in Figure 1.1.
 
 13. Modify this VI to return the name of the parameters Output Range High and Output Range Low in the desired keys output. Close and save this VI.
 
-|![Get Desired Keys.jpg](Pictures/get_desired_keys.jpg)|
+|![Get Desired Keys.jpg](Pictures/get_desired_keys.JPG)|
 |:--:|
 |*Figure 1.4*|
 
-14. Find and open the **validate key value pair.vi** in the configuration class. This should be located in the Customize folder as well. This VI runs each time the user changes the value of our parameters. In this case we will just add cases to handle the keys Output Range High and Output Range Low without checking anything in particular about the value. Check the image below to see the expected outcome for this VI. Save it and close it when done.
+14. Find and open the **validate key value pair.vi** in the configuration class. This should be located in the Customize folder as well. This VI runs each time the user changes the value of our parameters. In this case we will just add cases to handle the keys Output Range High and Output Range Low without checking anything in particular about the value. Check the image below to see the expected result for this VI. Save it and close it when done.
 
-|![validate key value pair.jpg](Pictures/validate_key_value_pair.jpg)|
+|![validate key value pair.jpg](Pictures/validate_key_value_pair.JPG)|
 |:--:|
 |*Figure 1.5*|
 
-15. Open the DCAF Editor and add our module again. After our recent changes, a new tab called Parameters shows up where the user can configure the value for Output Range High and Output Range Low. Show the DCAD editor and don't save any changes for now. 
+15. Open the DCAF Editor and add our module again. After our recent changes, a new tab called Parameters shows up where the user can configure the value for Output Range High and Output Range Low. Close the DCAF editor and don't save any changes for now. 
 
-|![Module Editor Parameters.jpg](Pictures/module_editorParameters.jpg)|
+|![Module Editor Parameters.jpg](Pictures/module_editorParameters.JPG)|
 |:--:|
 |*Figure 1.6*|
 
@@ -133,7 +131,7 @@ We are now ready to perform the necessary implementations in the runtime side of
 
 1. We will start by modifying our runtime class private data to contain the parameters we want to save. Open the **Custom Temperature Controller runtime.ctl** to contain a cluster with the Output Range High and Output Range Low. Make sure you keep the rest of this private data unmodified.
 
-|![Runtime Private Data.jpg](Pictures/runtime_private_data.jpg)|
+|![Runtime Private Data.jpg](Pictures/runtime_private_data.JPG)|
 |:--:|
 |*Figure 1.7*|
 
@@ -154,7 +152,7 @@ We are now ready to perform the necessary implementations in the runtime side of
 
 5.  Navigate to **Custom Controller Module runtime.lvclass** and open **user process.vi**. This method should have two clusters, one input and one output, which match the list of channels we configured for our module. Implement the same PID control as shown in the Figure 1.10.
 
-|![Figure 1.10 Custom Temperature Controller Initial User Process](Pictures/ctc_user_process_initial.jpg)
+|![Figure 1.10 Custom Temperature Controller Initial User Process](Pictures/ctc_user_process_initial.JPG)
 |:--:|
 |*Figure 1.10*
 
@@ -172,7 +170,7 @@ We are now ready to perform the necessary implementations in the runtime side of
 Our Custom Temperature Controller Static Module is now ready to run. However, we will study the steps to update our module with new processing parameters in the part C.
 
 ### Part C: Update the Static PID Module with Scripting
-As with any project requirment changed and we need to add channels for the  P,I,D values. In this section we are going to update our module channel list matches this table:
+As with any project, requirements changed and now we need to add channels for the  P,I and D values. In this section we are going to update our module channel list to match the table below:
 
 Name               | 	Type   |  Direction
 --                 |  ---    |--
@@ -212,7 +210,7 @@ Output             | Double  |  Processing Result
 5.	Drag the runtime class from the project over the runtime class path control or browse for it manually, then repeat for the configuration class (YourModuleName Configuration.lvclass).
 Because you used the script, you can leave most options as the default. Once the script finishes executing, the **Custom Temperature Controller runtime.lvclass:tag bus to parameters.vi** should look similar to the one in the figure 1.13 below.
 
-|![Custom Temperature Controller Accessors Scripted .jpg](Pictures/ctc_accessors_scripted.jpg)
+|![Custom Temperature Controller Accessors Scripted.jpg](Pictures/ctc_accessors_scripted.jpg)
 |:--:|
 |*Figure 1.13*
 
