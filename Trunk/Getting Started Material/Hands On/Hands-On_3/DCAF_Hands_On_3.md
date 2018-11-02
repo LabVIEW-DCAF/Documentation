@@ -217,9 +217,26 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 ### Part C: Dynamic Module Editor Node
 1. Open the **Main Editor UI.vi**. Add an extra tab for the user to configure general parameters for our module. In this case add a numeric value for the user to be able to modify the *Scale*. 
 
-2. Add an event case to manage UI changes in our parameters and store the new values into our configuration class. 
+|![Main Editor UI.jpg](Pictures/MainEditorUI.jpg)|
+|:--:|
+|*Figure 3.1*|
+
+
+2. Add an event case to manage UI changes in our parameters and store the new values into our configuration class. In this case we will create VI to update the *Scale* in the configuration class as it is shown in the images below.
+
+|![ScaleValueChange.jpg](Pictures/ScaleValueChange.jpg)|
+|:--:|
+|*Figure 3.2*|
+
+|![EditorUpdateScale.jpg](Pictures/EditorUpdateScale.jpg)|
+|:--:|
+|*Figure 3.3*|
 
 3. Create another method to read the stored value for the *Scale* from the Configuration Class.
+
+|![EditorReadScale.jpg](Pictures/EditorReadScale.jpg)|
+|:--:|
+|*Figure 3.3*|
 
 4. Modify **Define Columns.vi** so we can configure the type of elements that is expected in each column of our table. 
 
@@ -231,5 +248,14 @@ It is recommended that the Hands-On 1 and 2 are completed before doing this one 
 
 8. Modify **Line Configuration Dialog.vi**
 
-### Part D:  Create a a DCAF Application that runs the Static Module
+### Part D:  Create a a DCAF Application that runs the Dynamic Module
+
+Create a DCAF application to test the dynamic module we just created. In this case we will create 4:1 multiplexer. The UI for this application is shown in the image below.
+
+|![TesterUI.jpg](Pictures/TesterUI.jpg)|
+|:--:|
+|*Figure 4.1*|
+
+
+
 
