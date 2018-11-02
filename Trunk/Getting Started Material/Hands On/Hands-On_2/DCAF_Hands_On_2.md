@@ -314,11 +314,10 @@ In addition to this the module will have a parameter that defines the initial st
 
 ### Part A: Create the state machine module
 1. Create module from template
-2. Add the state to the runtime
-3. Initialize the state
+2. Add initial state parameter.
+3. Modify initialization in runtime class.
 4. Implement the user process
 5. Test the user process stand alone
-
 
 
 ### Part B: Create a DCAF Application that runs the Static Module
