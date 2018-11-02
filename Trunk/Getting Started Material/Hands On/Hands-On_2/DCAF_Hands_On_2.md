@@ -1,6 +1,6 @@
 # Hands-On 2: Static Modules
-This hands-on covers the creating of a DCAF Static module, this modules are easier to create and the recommended option if the module developer knows the number of channels that the module will require.
-It is recommended that the Hands-On 1 is completed before doing this one.
+This hands-on covers the steps to create a DCAF Static module, these modules are easier to create and the recommended option if the module developer knows the number of channels that the module will require.
+It is recommended that the Hands-On 1 is completed before starting with this one.
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -19,7 +19,7 @@ It is recommended that the Hands-On 1 is completed before doing this one.
 
 ## Introduction:
 
-DCAF Static modules are simple custom modules that are easy to create with the restriction that the module developer needs to know the number of channels that the module will have. By having the known number of channels, DCAF contain useful scripting tools that simplifies the module development.
+DCAF Static modules are simple custom modules that are easy to create with the restriction that the module developer needs to know the number of channels that the module will have. By having the known number of channels, DCAF contains useful scripting tools that simplifies the module development.
 
 Before creating a DCAF Static module there is an important checklist to cover:
 
@@ -64,7 +64,7 @@ This channel list will change during the exercise.
 ##### Create module from template
 1. Navigate to **Project >> Create Project…**
 2. In the tree on the left, select **DCAF >> Modules** and select **DCAF Static Channel Module**.
-3. Type **Custom Temperature Controller** as the **Module Name**.
+3. Type in **Custom Temperature Controller** as the **Module Name**.
 4. Look for the Project Root **\\Desktop\Hands On\Hands-On_2\Exercises\Temperature Controller\Modules** and create a folder called **Custom Temperature Controller**. Get into that folder and press **Current Folder**.
 6. Add the following parameters to your new module as **Channels** in the **Channel Specifications** tab. Channels represent data passed to or from your module during different execution stages, and channel names are case sensitive. The direction specifies whether the data is to the module or from the module, and is divided into inputs (data provided by input.vi), outputs (data provided to output.vi), and processing parameters and results (data passed to and from process.vi). For this hands on we will implement a processing step.
 
@@ -82,7 +82,7 @@ Your configuration should look like the one shown in Figure 1.1.
 |:--:|
 |*Figure 1.1*
 
-7.	Press Finish.
+7.	Press Finish. Wait for a few seconds for the full project to be scripted
 
 
 |![Custom Temperature Controller Project.jpg](Pictures/custom_temperature_controller_project.jpg)|
@@ -90,9 +90,9 @@ Your configuration should look like the one shown in Figure 1.1.
 |*Figure 1.2*|
 
 
-8. Your new project will appear. We will now explore how this new module loads from the editor. Open the DCAF editor by going to **Tools >> DCAF >> Launch Standard Configuration Editor**. 
+8. Your new project will appear and look similar to the image in figure 1.2. Feel free to close the accessor VIs that show up when the scripting is done. We will now explore how this new module loads from the editor. Open the DCAF editor by going to **Tools >> DCAF >> Launch Standard Configuration Editor**. 
 
-9. We want to configure the editor to search for modules in the path where our PID module was saved. From the DCAF Editor, navigate to **Tools >> Edit Plugin Search Paths...**. Add the next path as a search path: **\\Temperature Controller\Modules**.
+9. We want to configure the editor to search for modules in the path where our PID module was saved. From the DCAF Editor, navigate to **Tools >> Edit Plugin Search Paths...**. Add the next path as a search path: **\\Temperature Controller\Modules**. Click OK for the editor to refresh the list of plugins available.
 **Note**: Add the whole modules directory as the simulation module is in that folder.
 
 10. Add a PC target and a standard engine under the system to finally add your Custom Temperature Controller Module under the engine. It should look as in the image below. As you can see, the channels of our module are ready to be connected to tags in the engine.
@@ -123,13 +123,13 @@ Your configuration should look like the one shown in Figure 1.1.
 |:--:|
 |*Figure 1.6*|
 
-We are done with building the configuration for our static module. In the next section of this exercise we will mainly work on the runtime class of the module.
+We are done with building the configuration code for our static module. For static modules, most of the work is sripted by us from the template. In the next section of this exercise we will mainly work on the runtime class of the module.
 
 ### Part B: Modify the Initialization and Implement the User Process
 
 We are now ready to perform the necessary implementations in the runtime side of our module. We will start by modifying the initialization to be able to load the parameters that will be used by our process. Once this is done, we will modify the user process to contain a PID. 
 
-1. We will start by modifying our runtime class private data to contain the parameters we want to save. Open the **Custom Temperature Controller runtime.ctl** to contain a cluster with the Output Range High and Output Range Low. Make sure you keep the rest of this private data unmodified.
+1. We will start by modifying our runtime class private data to contain the parameters we want to save. Open the **Custom Temperature Controller runtime.ctl** to contain a cluster with the Output Range High and Output Range Low. Make sure you keep the rest of this private data unmodified. Consult figure 1.7 to see the expected result.
 
 |![Runtime Private Data.jpg](Pictures/runtime_private_data.JPG)|
 |:--:|
@@ -138,11 +138,15 @@ We are now ready to perform the necessary implementations in the runtime side of
 
 2. Next, create an override for the **apply key value pairs.vi** to store the parameters that were saved as keys into the **Custom Temperature Controller runtime.ctl**. To create the override VI, right-click on the runtime class and select **New >> VI for Override** and select the **apply key value pairs.vi** in the *New Override* window.
 
-3. Modify the **apply key value pairs.vi** to look like the one in the image below. When the Output Range High or Output Range Low key is detected we store its value in the corresponding element in our private data.
+3. Modify the **apply key value pairs.vi** to look like the one in the image below. When the Output Range High or Output Range Low key is detected we store its value in the corresponding element in our private data. Save the modified VI in the **\\Temperature Controller\Modules\Custom Temperature Controller\module\execution** folder. 
 
 |![apply key value pairs.jpg](Pictures/apply_key_value_pairs.jpg)|
 |:--:|
 |*Figure 1.8*|
+
+     a. Other than the two cases shown in the image, there is a *Default* case that simply passes runtime object from the input to the output as it is.
+     b. Make sure you use shift registers to store the object class in the for loop.
+     c. Make sure the VI doesn't have a broken arrow when you finish modifying it.
 
 4. Navigate to **Custom Controller Module runtime.lvclass** and open **process.vi** in the overrides folder. On either side, Scripted Accessors convert tag bus data into your user-defined cluster. These methods are not automatically generated and must be generated when the project is first scripted or after any change to the interface. We will cover how to make changes to this VIs in Part C of this exercise. Feel free to explore with more detail the code inside these accessors.
 
@@ -208,7 +212,7 @@ Output             | Double  |  Processing Result
 4.	Open **Tools >> DCAF >> Launch Control Module Scripting Utility…**
 
 5.	Drag the runtime class from the project over the runtime class path control or browse for it manually, then repeat for the configuration class (YourModuleName Configuration.lvclass).
-Because you used the script, you can leave most options as the default. Once the script finishes executing, the **Custom Temperature Controller runtime.lvclass:tag bus to parameters.vi** should look similar to the one in the figure 1.13 below.
+You can leave the rest of the options as the default and run this VI. Once the script finishes executing, the **Custom Temperature Controller runtime.lvclass:tag bus to parameters.vi** should look similar to the one in the figure 1.13 below.
 
 |![Custom Temperature Controller Accessors Scripted.jpg](Pictures/ctc_accessors_scripted.jpg)
 |:--:|
@@ -221,7 +225,7 @@ Because you used the script, you can leave most options as the default. Once the
 |:--:|
 |*Figure 1.14*
 
-7.	Save the module project and close it.
+7.	Save the VI and module project. Close the project since now we will use this module from a separate project.
 
 ### Part D: Running and Configuring the Module
 
@@ -230,9 +234,9 @@ Because you used the script, you can leave most options as the default. Once the
 
 2. Open **Static Temperature Chamber.pfcg** in the **\\Desktop\Hands On\Hands-On_2\Exercises\Temperature Controller** folder.
 
-3. Right click on Standard Engine and select **Add >> Other>>Custom Controller Module**. Then, select this new module from the tree.
+3. Right click on Standard Engine and select **Add >> Other>>Custom Temperature Controller**. Then, select this new module from the tree.
 
-4. For each processing parameter tag, click on the column Mapped to System Tag and configure the channel to be mapped to the appropriate system tag. You can look at “Temperature Controller Logic” to identify the correct mapping, which looks like Figure 1.15:
+4. For each processing parameter tag, click on the column *Mapping* and configure the channel to be mapped to the appropriate system tag. You can look at “Temperature Controller Logic” to identify the correct mapping, which looks like Figure 1.15:
 
 |![Custom Temperature Controller channel configuration](Pictures/ctc_channel_configuration.jpg)
 |:--:|
@@ -246,11 +250,13 @@ Because you used the script, you can leave most options as the default. Once the
 |:--:|
 |*Figure 1.16*
 
-6.	Select to File >> Save.
+6. Script the corresponding includes VI to contain all the dependencies classes for our configuration. In the DCAF tree, go to PC and configure the *Includes file path* to the **Temperature Chamber Includes.vi** in the **\\Desktop\Hands On\Hands-On_2\Exercises\Temperature Controller** folder. Click on Generate to script this VI. 
 
-7. Open the **Temperature Chamber.lvproj** in **\\Desktop\Hands On\Hands-On_2\Exercises\Temperature Controller**.
+7. Select to File >> Save.
 
-8. From the Project Window, open **Temperature Chamber Includes.vi**.  This function ensures that all appropriate modules are loaded into memory. You can also load precompiled modules (llb or lvlibp files) from disk, but for our purposes we will simply hardcode the appropriate modules.
+8. Open the **Temperature Chamber.lvproj** in **\\Desktop\Hands On\Hands-On_2\Exercises\Temperature Controller**.
+
+9. From the Project Window, open **Temperature Chamber Includes.vi**.  This function ensures that all appropriate modules are loaded into memory. You can also load precompiled modules (llb or lvlibp files) from disk, but for our purposes we will simply hardcode the appropriate modules.
 
 |![Figure 1.13 Custom Temperature Controller Includes Block Diagram](Pictures/ctc_includes_bd.jpg)
 |:--:|
@@ -259,12 +265,12 @@ Because you used the script, you can leave most options as the default. Once the
 
 ##### Running the Code
 
-9. Open the **Temperature Chamber Main.vi**.
-10. Set the Configuration File Path to the path of the *Static Temperature Chamber.pcfg*.
+10. Open the **Temperature Chamber Main.vi**.
+11. Set the Configuration File Path to the path of the *Static Temperature Chamber.pcfg*.
 
 **Note:** If the configuration file name is not valid you will receive error 538500
 
-11. Run the VI and use the UI to verify the PID behaves as expected.
+12. Run the VI and use the UI to verify the PID behaves as expected.
 
 
 ## Exercise 2:
