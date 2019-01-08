@@ -70,31 +70,32 @@ In the hierarchy shown above you can find some of the components defined in the 
 **Temperature Chamber Model**: This module provides a simulated model of a Temperature Chamber. This module could be replaced or overwritten to eventually provide IO from a real Temperature Chamber.
 
 ### Part A: Project Creation and UI
-During this first part of the exercise you will be create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
+During this first part of the exercise you will create a DCAF project from scratch using a template and learn how to add a User Interface to your DCAF project.
 
-1.	In LabVIEW go to **File >> Create Project..** and select DCAF. From the displayed list select **Basic Execution Template** and press the **Next** button.
-2.	Name the project **Temperature Controller** and select **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime\Project** as the Project Root.
-3.	Verify your project window matches Figure 1.2.
+1.	In LabVIEW go to **File >> Create Project..**. In the *Create Project* window select DCAF in the left pane. From the displayed list select **DCAF Basic Execution Template** and press the **Next** button.
+2.	Name the project **Temperature Controller** and select **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime\Project** as the Project Root.
+3. Click *Finish* to start scripting your runtime project from this template.
+4.	Verify your project window matches Figure 1.2.
 
 |![Figure 1.2 Project Configuration](Pictures/project_configuration.jpg)|
 |:--:|
 |*Figure 1.2*|
 
-4.	Add to the project a Configuration File with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a Configuration File). Under **My Computer** add **SimulatedSystem.pcfg** located at **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller**.
-5.	To speed up the exercise, a UI has already been created. Under **My Computer**, add **TCRL User Interface.vi** to the project located at **\\Temperature Controller\Runtime.**
-6.	Look at the names of the Labels in the Block Diagram. This is important to correctly map the tags to the UI. Controls and Indicators will be directly updated through the DCAF UI Engine, so there is no need to add more code in this VI. Save and Close **TCRL User Interface.vi**.
+5.	Add to the project a configuration file with the Engines for the Temperature Controller partially configured and mapped (in future exercises you will make a configuration file from scratch). In the project explorer, right-click **My Computer**, select *Add* and navigate to the  **SimulatedSystem.pcfg** file located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller**.
+6.	To speed up the exercise, a User Interface VI has already been created for you. In the project explorer, right-click **My Computer**, select *Add* and navigate to the **TCRL User Interface.vi** file located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime.**
+7.	Open the **TCRL User Interface.vi**. Look at the names of the Labels in the Block Diagram. This is important to correctly map the tags to the UI. Controls and Indicators will be directly updated through the DCAF UI Engine, so there is no need to add more code in this VI. Save and Close **TCRL User Interface.vi**.
 
 |![Figure 1.3 Project Configuration](Pictures/UI_block_diagram.jpg)|
 |:--:|
 |*Figure 1.3*|
 
-7.	Open **TCRL Host Main.vi** Block Diagram. Delete the bottom While Loop, as we won’t need it for this exercise. Drag and Drop **TCRL User Interface.vi** into the Block Diagram from the Project Window. Force **TCRL User Interface.vi** to execute in parallel to the DCAF engine connecting as shown in Figure 1.4.
+8.	Open the **Host Main.vi** Block Diagram. Delete the bottom While Loop, as we won’t need it for this exercise. Drag and Drop **TCRL User Interface.vi** into the Block Diagram from the Project Window. Force **TCRL User Interface.vi** to execute in parallel to the DCAF engine connecting as shown in Figure 1.4.
 
 |![Figure 1.4 Host Main Block Diagram](Pictures/Host_Main_block_diagram.jpg)|
 |:--:|
 |*Figure 1.4*|
 
-8.	Open **TCRL Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Temperature Controller**.  Select this as default value for this control by going to **Edit >> Make Current Values Default**. Save and Close this VI.
+9.	Open **TCRL Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Temperature Controller**.  Select this as default value for this control by going to **Edit >> Make Current Values Default**. Save and Close this VI.
 
 ### Part B: Adding Required Classes
 
@@ -244,7 +245,7 @@ Adding TDMS is a specific module that might become really handy in a DCAF applic
 |*Figure 2.2*|
 
 5.	Go to the **Datalogger Configuration** tab. Press the browse button to select a File path. Browse to **\\Temperature Controller\Runtime** and create a folder named **Data**. Type Temperature Measurements as the File name.
-6.	Go to the Log Rotation Tab. In here we can configure a maximum size for each file before a new one is created. Press the browse button to select a Historical Directory. Browse to **\\Temperature Controller\Runtime** and create a folder named **Historical**. In this folder our files will be saved once they get to the maximum size we configured. 
+6.	Go to the Log Rotation Tab. In here we can configure a maximum size for each file before a new one is created. Press the browse button to select a Historical Directory. Browse to **\\Temperature Controller\Runtime** and create a folder named **Historical**. In this folder our files will be saved once they get to the maximum size we configured.
 
 |![Figure 2.3 Datalogger Configuration](Pictures/datalogger_configuration.jpg)|
 |:--:|
