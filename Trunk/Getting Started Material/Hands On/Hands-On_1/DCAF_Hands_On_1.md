@@ -159,16 +159,17 @@ Before we start the implementation, take a look to the following diagram to unde
 |:--:|
 |*Figure 1.7*|
 
-1.	Open the Standard Configuration Editor by navigating in LabVIEW to **Tools>>DCAF>>Launch Standard Configuration Editor…**
-2.	We will first map our UI to the UI Engine Tags. Beneath the UI Standard Engine select UI Reference. Notice the table in the Static Configuration tab is empty. Press the Browse button next to the UI to Load textbox. Browse for **TCRL User Interface.vi** located at **\\Temperature Controller\Runtime**.
-3.	Press the **Configure from UI** button. When the pop up asking to Automatically map tags to channels appears select Yes. Verify your mappings comparing them with Figure 1.8.
+1.	If it is not already open, launch the Standard Configuration Editor by navigating in LabVIEW to **Tools>>DCAF>>Launch Standard Configuration Editor…**. Go to *File>>Open* and browse for the **SimulatedSystem.pcfg** configuration file located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller**.
+2.	We will first map our UI to the UI Engine Tags. Beneath the UI Standard Engine select UI Reference. Notice the table in the Static Configuration tab is empty. Press the Browse button next to the UI to Load textbox in the bottom left of the pane. Browse for **TCRL User Interface.vi** located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime**.
+3.	Press the **Configure from UI** button in the bottom right of the pane. When the pop up asking to Automatically map tags to channels appears select **Yes**. Verify your mappings comparing them with Figure 1.8.
 
 |![Figure 1.8 UI Module Configuration](Pictures/ui_module_configuration.jpg )|
 |:--:|
 |*Figure 1.8*|
 
-4.	Save the changes in the Configuration Editor.
-5.	Open and run **TCRL Host Main.vi**. Try changing the Setpoint and the other controls. Do you see any change in the temperature value displayed in the Graph?
+4.	Save the changes in the Configuration Editor by pressing *Ctrl + S* or going to *File>>Save*. Keep the Editor open since it will continue being used in latter steps.
+5.	Open **Host Main.vi** in the **Temperature Controller.lvproj**. Verify the *configuration file path* control points to the **SimulatedSystem.pcfg** configuration file and that *target alias* is configured to PC.
+6. Run **Host Main.vi** and **TCRL User Interface.vi** should open automatically. Try changing the Setpoint and the other controls. Do you see any change in the temperature value displayed in the Graph?
 
 |![Figure 1.9 UI Front Panel](Pictures/ui_front_panel.jpg)|
 |:--:|
@@ -176,75 +177,95 @@ Before we start the implementation, take a look to the following diagram to unde
 
 **Note:** You shouldn’t see any change in the signal since we only connected the tags in the UI Engine. There are still some tags in the Simulation Engine that we need to map so we can see the PID standard behavior.
 
-6.	Stop the **TCRL Host Main.vi** and return to the Configuration Editor. We will review the connections in each component on both engines to understand the tag dataflow and connect the tags that are missing to make it run.
+7.	Stop the **Host Main.vi** and return to the DCAF Configuration Editor. We will review the connections in each component on both engines to understand the tag dataflow and connect the tags that are missing to make it run with the expected functionality.
 
-7.	We will start with the **Simulation Engine**. First select the Tags node and take a look at the tags.
+8.	We will start with the **Simulation Engine**. First select the Tags node and take a look at the tags.
 
 |![Figure 1.10 Tags Configuration](Pictures/tags_configuration.jpg)|
 |:--:|
 |*Figure 1.10*|
 
-8.	These tags are used for connections in the rest of Simulation Engine modules: Temperature Controller Logic, Temperature Chamber Model and UDP. Notice all of them are Doubles except for **Fan on?**.
+9.	These tags are used for connections in the rest of Simulation Engine modules: *Temperature Controller Logic*, *Temperature Chamber Model* and *UDP*. Notice all of the tags are Doubles except for **Fan on?**.
 
-9.	Go to **Mappings** under the Simulation Standard Engine and select the **Manual Mapping** tab. This section will allow you to have a better look of the tag flow in this application. In the left pane you will see all the channels that haven’t been mapped. Just look, don’t make changes.
+10.	Go to **Mappings** under the Simulation Standard Engine and select the **Manual Mapping** tab. This section will allow you to have a better look of the tag flow in this application. In the left pane you will see all the channels that haven’t been mapped.
 
 |![Figure 1.11 Mappings Configuration](Pictures/mappings.jpg)|
 |:--:|
 |*Figure 1.11*|
 
-10.	Go to the Temperature Controller Logic Module. Notice there are two variables that don’t appear in the Tag list: **output range high** and **output range low**. These are internal variables with constant values defined statically. The rest should be mapped to a tag.
+11. Click on the *Show Mappings* button that is shown in the Figure 1.12 below.
 
-11.	The last 3 channels should be connected to a tag (**Fan on?**, **fan**, and **lamp**). To connect a channel to a tag, take the cursor to the corresponding cell in the **Mapped to System Tag** column, left click, and select the corresponding tag from the **Available Tags** list.
-
-|![Figure 1.12 Mapping Configuration Dialog](Pictures/mapping_configuration_dialog.jpg)|
+|![Figure 1.12 Showing Mappings](Pictures/showing_mappings.jpg)|
 |:--:|
 |*Figure 1.12*|
 
-12.	Verify your table looks like the following image:
+12. This will launch the *GraphViz Mapping UI* window. This tool is useful to visually identify the active mappings between the different modules in our configuration. As you can see, only some of the *UDP* input channels have been connected to the *Temperature Controller Logic* module. The *Temperature Chamber Model* hasn't been connected at all nor the *UDP* outputs.
 
-|![Figure 1.13 Temperature Control Logic Configuration.jpg](Pictures/temperature_control_logic_configuration.jpg)|
+|![Figure 1.13 GraphViz Mapping Simulation 1](Pictures/GraphViz_Mapping_Simulation1.jpg)|
 |:--:|
 |*Figure 1.13*|
 
-13.	Before going to the next module notice the **Direction** column. **Processing parameters** are module inputs while **processing results** are module outputs. Some of the processing parameters in this module come from the UI Engine and others come from the Temperature Controller Logic Module. The two processing results in this module will go through the Tag Bus as inputs in the **Temperature Chamber Model** module.
+13.	Go to the Temperature Controller Logic Module. Notice there are two variables that don’t appear in the Tag list: **output range high** and **output range low**. These are internal variables with constant values defined statically.
 
-14.	Go to the **Temperature Chamber Model** module. Notice all the channels are disconnected from any tag. The only disconnected channel should be **Ambient Temperature**. Create the following connections. **Fan PWM** and **Lamp PWM** channels are processing parameters in this module that should come from the **Temperature Controller Logic Module**. **Thermocouple Reading** is a processing result that should be used as the feedback signal in the **Temperature Controller Logic Module** and will also be sent to the UI Engine to be displayed in the graph. Following the same instructions as in step 11, map **Fan PWM**, **Lamp PWM**, and T**hermocouple Reading** channels to **Fan**, **Lamp**, and **Thermocouple** tags. Verify your table looks like the following image:
+14.	The last 3 channels should be connected to a tag (**Fan on?**, **fan**, and **lamp**). To connect a channel to a tag, take the cursor to the corresponding cell in the **Mapped to System Tag** column, left click, and select the corresponding tag from the **Available Tags** list.
 
-|![Figure 1.14 Temperature Model Configuration](Pictures/temperature_model_configuration_dialog.jpg)|
+|![Figure 1.14 Mapping Configuration Dialog](Pictures/mapping_configuration_dialog.jpg)|
 |:--:|
 |*Figure 1.14*|
 
-15.	Go to the **UDP Module** in the **Simulation Engine**. Go to the **Channel Mapping Tab**. Notice the tags in the From External Engine (Inputs) and To External Engine (Outputs) boxes. Notice the Fan tag is still as an **Available Tag**. There is no need to move it since it is not needed in the UI Engine, it is only used internally in the **Simulation Engine**.
+15.	Verify your table looks like the following image:
 
-|![Figure 1.15 UDP Config](Pictures/udp_configuration.jpg)|
+|![Figure 1.15 Temperature Control Logic Configuration.jpg](Pictures/temperature_control_logic_configuration.jpg)|
 |:--:|
 |*Figure 1.15*|
 
-16.	Go back to **Mappings** in the **Simulation Engine**. Notice now there are only 3 channels that haven’t been mapped. There are no tags for those channels since they are configured statically in their corresponding modules or set as default. All the channels that originally were unmapped now appear mapped in the right pane. Take some time to review the mapping directions to have a better understanding of the data flow.
+16.	Before going to the next module notice the **Direction** column. **Processing parameters** are module inputs while **processing results** are module outputs. Some of the processing parameters in this module come from the UI Engine and others come from the Temperature Controller Logic Module. The two processing results in this module will go through the Tag Bus as inputs in the **Temperature Chamber Model** module.
 
-|![Figure 1.16 Mappings Configuration 2](Pictures/mappings_2.jpg)|
+17.	Go to the **Temperature Chamber Model** module. Notice all the channels are disconnected from any tag. The only disconnected channel should be **Ambient Temperature** that will be kept at a constant default value of 25. Following the same instructions as in step 14, map **Fan PWM**, **Lamp PWM**, and **Thermocouple Reading** channels to **Fan**, **Lamp**, and **Thermocouple** tags.  **Fan PWM** and **Lamp PWM** channels are processing parameters in this module that should come from the **Temperature Controller Logic Module**. **Thermocouple Reading** is a processing result that should be used as the feedback signal in the **Temperature Controller Logic Module** and will also be sent to the UI Engine to be displayed in the graph. Verify your table looks like the following image:
+
+|![Figure 1.16 Temperature Model Configuration](Pictures/temperature_model_configuration_dialog.jpg)|
 |:--:|
 |*Figure 1.16*|
 
-17.	Now that you have seen how the **Simulation Engine** works, step into the different components of the UI Engine to understand how it interacts with the **Simulation Engine**. Notice that the Inputs for the **UI Engine UDP Module** are the Outputs for the **Simulation Engine UDP Module** and vice versa.
+18.	Go to the **UDP Module** in the **Simulation Engine**. Go to the **Channel Mapping Tab**. Notice the tags in the From External Engine (Inputs) and To External Engine (Outputs) boxes. Notice the Fan tag is still as an **Available Tag**. There is no need to move it since it is not needed in the UI Engine, it is only used internally in the **Simulation Engine**.
 
-|![Figure 1.17 UDP Configuration A](Pictures/udp_configuration_a.jpg) ![Figure 1.17 UDP Configuration b](Pictures/udp_configuration_b.jpg)|
+|![Figure 1.17 UDP Config](Pictures/udp_configuration.jpg)|
 |:--:|
 |*Figure 1.17*|
 
-18.	Take a look again to the dataflow diagram to review the mapping you just did.
+19.	Go back to **Mappings** in the **Simulation Engine**. Notice now there are only 3 channels that haven’t been mapped. There are no tags for those channels since they are configured statically in their corresponding modules or set as default. All the channels that originally were unmapped now appear mapped in the right pane. Take some time to review the mapping directions to have a better understanding of the data flow.
 
-|![Figure 1.18 Mapping Guide](Pictures/mapping_guide.jpg)|
+|![Figure 1.18 Mappings Configuration 2](Pictures/mappings_2.jpg)|
 |:--:|
 |*Figure 1.18*|
 
-19.	Go to **\| File >> Save** and close the Configuration Editor.
-20.	Open the **Temperature Controller Example Project** if not already open. Open and run **Host Main.vi.**
-21.	Modify the **Setpoint** and the other controls in the UI. You should now see the temperature being controlled by the **Simulation Engine**.
+20. Open the *GraphViz Mapping UI* window by clicking on the *Show Mappings* button that was shown in Figure 1.12. Compare to make sure it matches the representation shown in Figure 1.19. As you can see, now the modules are mapped in the way we expected.
 
-|![Figure 1.19 UI Front Panel 2](Pictures/ui_front_panel_2.jpg)|
+|![Figure 1.19 GraphViz Mapping Simulation 2](Pictures/GraphViz_Mapping_Simulation2.jpg)|
 |:--:|
 |*Figure 1.19*|
+
+21.	Check the Channel Mapping configuration for the *UDP* modules in the Simulation and UI Engines. Notice that the Inputs for the **UI Engine UDP Module** are the Outputs for the **Simulation Engine UDP Module** and vice versa.
+
+|![Figure 1.20 UDP Configuration A](Pictures/udp_configuration_a.jpg) ![Figure 1.17 UDP Configuration b](Pictures/udp_configuration_b.jpg)|
+|:--:|
+|*Figure 1.20*|
+
+22. Go to **Mappings** in the **UI Engine**. Open the *GraphViz Mapping UI* and verify that all the mappings were already completed between the **UI Reference** and **UDP** modules .
+
+23.	Take a look again to the dataflow diagram to review the mapping you just did.
+
+|![Figure 1.21 Mapping Guide](Pictures/mapping_guide.jpg)|
+|:--:|
+|*Figure 1.21*|
+
+24.	Go to **File >> Save** and close the Configuration Editor.
+25.	Open the **Temperature Controller** Project if not already open. Open and run **Host Main.vi.**
+26.	Modify the **Setpoint** and the other controls in the UI. You should now see the temperature being controlled by the **Simulation Engine**.
+
+|![Figure 1.22 UI Front Panel 2](Pictures/ui_front_panel_2.jpg)|
+|:--:|
+|*Figure 1.22*|
 
 ## Exercise 2: Adding Standard Modules to the Temperature Control Application (TDMS & CVT)
 In Exercise 1 you developed a Simple Temperature Control Application using DCAF. Now, we will add standard features such as TDMS and CVT to learn how to add standard DCAF modules to your application.
