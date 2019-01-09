@@ -89,37 +89,60 @@ During this first part of the exercise you will create a DCAF project from scrat
 |:--:|
 |*Figure 1.3*|
 
-8.	Open the **Host Main.vi** Block Diagram. Delete the bottom While Loop, as we won’t need it for this exercise. Drag and Drop **TCRL User Interface.vi** into the Block Diagram from the Project Window. Force **TCRL User Interface.vi** to execute in parallel to the DCAF engine connecting as shown in Figure 1.4.
+8.	Open the **Host Main.vi** Block Diagram. You will modify this VI to look like the one in *Figure 1.4*. Consider the steps below:
+
+	a. Delete the bottom While Loop, as we won’t need it for this exercise. This loop is intended for you to add custom code that runs in parallel with DCAF.
+
+	b. Drag and Drop **TCRL User Interface.vi** into the Block Diagram from the Project Window. Force **TCRL User Interface.vi** to execute in parallel to the DCAF engine by enclosing it with a *Flat Sequence Structure* and wiring the error cable. **TCRL User Interface.vi** is already configured to open automatically when called.
 
 |![Figure 1.4 Host Main Block Diagram](Pictures/Host_Main_block_diagram.jpg)|
 |:--:|
 |*Figure 1.4*|
 
-9.	Open **TCRL Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Temperature Controller**.  Select this as default value for this control by going to **Edit >> Make Current Values Default**. Save and Close this VI.
+9.	Open the **Host Main.vi** Front Panel. In the configuration file path control browse for **SymulatedSystem.pcfg** located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller**.  Select this as default value for this control by going to **Edit >> Make Current Values Default**. Save and Close this VI.
 
 ### Part B: Adding Required Classes
 
 DCAF has been developed using LabVIEW Object Oriented Programming. Therefore, the code will only run if the classes used within a specific configuration are added to the project. DCAF provides a simple script that will help you with this every time you add or remove modules to a target in the Configuration Editor. This is not automatic, so you have to remember to run this scripting tool when you make these kinds of changes in the configuration.
 
 1.	Open the Standard Configuration Editor by navigating in LabVIEW to **Tools>>DCAF>>Launch Standard Configuration Editor…**
-2.	Navigate within the editor to **Tools>>Edit Plugin Search Paths**.
-3.	Add a search path to the plugins for this example located at **\\Temperature Controller\Modules** if it’s not already there.
-4.	In the DCAF Configuration Editor go to File>>Open and search for the SimulatedSystem.pcfg Configuration File located at **\\Temperature Controller**.
+2.	Within the editor, navigate to **Tools>>Edit Plugin Search Paths**.
+3.	We will reuse existing modules that were developed for this exercise. Add a search path to the plugins for this example located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Modules** if it’s not already there. Click *OK* once this path has been added.
+4.	In the DCAF Configuration Editor go to *File>>Open* and browse for the **SimulatedSystem.pcfg** configuration file located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller**.
 5.	Take a couple of minutes to go through each component in the Simulation and UI Engines.
-6.	Open the Temperature Controller project located at **\\Desktop\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime** if not already opened.
-7.	Open **TCRL Host Module Includes.vi** and verify the Block Diagram is empty. This VI will load the required classes when T**CRL Host Main.vi** executes. A scripting tool will add the corresponding classes to TCRL Host Module Includes.vi. In the System Configuration hierarchy in the DCAF Configuration Editor select PC. In the Includes file path box browse for  **TCRL Host Module Includes.vi** located at **\\Temperature Controller\Runtime\Project**. Press the Generate button. Repeat this step each time you add or remove any Module from the Hierarchy Tree.
+
+	a. **Tags**: A **Tag** can be defined as a connecting point between **Channels** from different **Modules**. All the *Tags* available in a given engine will show up in this pane. Considering this, all the engines must have a *Tags* section. *Tags* can be created from this pane or from the modules configuration.</br>
+
+	b. **Mappings**: Mappings are the connections between **Tags** and **Channels**. If you want a specific Channel to write or read a value on a specific *Tag* you will have to map them. All the existing *Mappings* in a given engine will show up in this pane. Considering this, all the engines must have a *Mappings* section.
+
+	c. **Temperature Controller Logic**: This is a custom DCAF Module designed to provide the control logic for the temperature chamber. Check how the module pane displays a list with all its channels and their corresponding *mapping* with a *tag* in the engine.
+
+	d. **Temperature Chamber Model**: This is a custom DCAF module that provides a simulated model of a Temperature Chamber. Check how the module pane displays a list with all its channels and their corresponding *mapping* with a *tag* in the engine.
+
+	e. **UDP**: This is a standard module installed with DCAF and it has been added to both *engines*. It is designed to share tags between *engines* by mapping each tag as an Engine Input or Output. All tags that are intended to be shared between engines need to be defined in the Tags Pane of each engine with the same names.
+
+	f. **UI Reference**: This is a standard module installed with DCAF. This module takes a pre-existing front panel and maps its controls and indicators to DCAF tags to permit direct user interaction with the framework.
+
+6.	Open the Temperature Controller project located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime\Project** if not already opened.
+7.	Open **Host Module Includes.vi** and verify the Block Diagram is empty. This VI will load the required classes when **Host Main.vi** executes. We will use a scripting tool to add the corresponding classes to **Host Module Includes.vi**.
+
+8. Go back to the DCAF Editor. In the System Configuration hierarchy select PC. In the Includes file path box browse for  **Host Module Includes.vi** located at **\\Hands On\Hands-On_1\Exercises\Temperature Controller\Runtime\Project**.
 
 |![Figure 1.5 Script Includes Dialog](Pictures/script_includes_dialog.jpg)|
 |:--:|
 |*Figure 1.5*|
 
-8.	Verify that the corresponding classes have been added to **TCRL Host Module Includes.vi** and compare them to Figure 1.6:
+9. Press the Generate button. This will start scripting the **Host Module Includes.vi** to contain the classes being used by our configuration.
+
+10.	Verify that the corresponding classes have been added to **Host Module Includes.vi** and compare them to Figure 1.6:
 
 | ![Figure 1.6 Host Includes Block Diagram](Pictures/host_includes_block_diagram.jpg )|
 |:--:|
 |*Figure 1.6*|
 
-9.	Save and close **TCRL Host Module Includes.vi**.
+**Note**: This same process has to be repeated every time you add a new type of module to your configuration.
+
+11.	Save and close **Host Module Includes.vi**. Keep the DCAF Editor open for the next section of the exercise.
 
 ### Part C: Mapping Tags in the Configuration Editor
 
